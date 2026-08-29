@@ -87,14 +87,15 @@ h3 { font-size: 1.25rem; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px 20px;
+  flex-wrap: nowrap;
+  gap: 16px;
   min-height: 76px;
 }
 .logo {
   font-weight: 800;
   font-size: 1.15rem;
   white-space: nowrap;
+  min-width: 0;
 }
 .logo span { color: var(--green); }
 
@@ -112,7 +113,7 @@ h3 { font-size: 1.25rem; }
 .main-nav a:hover { color: var(--green-dark); }
 .main-nav a.active { color: var(--green-dark); }
 
-.header-actions { display: flex; align-items: center; gap: 14px; }
+.header-actions { display: flex; align-items: center; gap: 14px; margin-left: auto; flex-shrink: 0; }
 
 .nav-toggle {
   display: none;
@@ -973,4 +974,26 @@ h1, h2, h3, h4 { overflow-wrap: break-word; }
 .table-scroll .extra-table { margin-bottom: 0; }
 @media (max-width: 760px) {
   .table-scroll .extra-table { min-width: 520px; }
+}
+
+/* ---------- Шапка на телефоне ----------
+   Раньше шапка переносилась на две строки и всё прижималось влево.
+   Теперь она всегда в одну строку: название слева, действия справа.
+   На узких экранах кнопку «Забронировать» убираем — снизу постоянно
+   висит панель «Позвонить / WhatsApp», и в шапке она только мешала
+   названию поместиться. */
+@media (max-width: 760px) {
+  .site-header .container { gap: 12px; min-height: 64px; }
+  .logo { font-size: 1.02rem; }
+}
+
+@media (max-width: 560px) {
+  .header-actions .btn-green { display: none; }
+  .header-actions { gap: 8px; }
+  .logo { font-size: 1rem; }
+}
+
+@media (max-width: 360px) {
+  .site-header .container { padding: 0 16px; }
+  .logo { font-size: .94rem; }
 }
