@@ -150,3 +150,103 @@ document.addEventListener("DOMContentLoaded", () => {
   initNavToggle();
   initBookingForms();
 });
+
+/* =========================================================
+   Загрузка фотографий
+   -----------------------------------------------------------
+   Порядок такой:
+   1. Фото первого экрана грузится сразу и с высоким приоритетом.
+   2. Всё остальное — браузерным loading="lazy": подгружается,
+      когда пользователь до него доскроллил (браузер начинает
+      заранее, за несколько экранов).
+   3. Когда страница догрузилась и браузер простаивает, фоном
+      подтягиваются фото соседних страниц — те, куда посетитель
+      скорее всего пойдёт дальше. Это и есть «загрузка за
+      пользователем».
+   4. При наведении (или касании) на ссылку дома его галерея
+      начинает грузиться до перехода — страница открывается
+      уже с картинками.
+
+   Всё фоновое отключается при экономии трафика и на медленной
+   связи: там лишние мегабайты вредят, а не помогают.
+   ========================================================= */
+
+function connectionAllowsPrefetch() {
+  const c = navigator.connection;
+  if (!c) return true;
+  if (c.saveData) return false;
+  return !["slow-2g", "2g", "3g"].includes(c.effectiveType);
+}
+
+// Плавное проявление: фото становится видимым, когда загрузилось.
+function initPhotoFadeIn() {
+  document.querySelectorAll(".ph img").forEach((img) => {
+    if (img.complete && img.naturalWidth > 0) {
+      img.classList.add("is-loaded");
+    } else {
+      img.addEventListener("load", () => img.classList.add("is-loaded"), { once: true });
+      img.addEventListener("error", () => img.classList.add("no-fade"), { once: true });
+    }
+  });
+}
+
+// Тихо просим браузер положить картинку в кэш.
+function warmUp(url) {
+  if (warmUp.done.has(url)) return;
+  warmUp.done.add(url);
+  const img = new Image();
+  img.decoding = "async";
+  img.src = url;
+}
+warmUp.done = new Set();
+
+// Фото, которые стоит подтянуть заранее с каждой страницы.
+const NEXT_PAGE_PHOTOS = {
+  "index.html": [
+    "assets/img/foto/dom-1/dom-1-fasad-1-800.webp",
+    "assets/img/foto/dom-2/dom-2-fasad-2-800.webp",
+    "assets/img/foto/dom-3/dom-3-fasad-800.webp",
+  ],
+  "doma.html": [
+    "assets/img/foto/dom-1/dom-1-kuhnya-2-3-800.webp",
+    "assets/img/foto/dom-2/dom-2-kuhnya-3-3-800.webp",
+    "assets/img/foto/dom-3/dom-3-zal-1-800.webp",
+  ],
+};
+
+// Галерея, которую подтягиваем при наведении на ссылку дома.
+const HOVER_PHOTOS = {
+  "dom-1.html": "assets/img/foto/dom-1/dom-1-fasad-1-800.webp",
+  "dom-2.html": "assets/img/foto/dom-2/dom-2-fasad-2-800.webp",
+  "dom-cherez-dorogu.html": "assets/img/foto/dom-3/dom-3-fasad-800.webp",
+  "territoriya.html": "assets/img/foto/territoriya/territoriya-besedka-1-800.webp",
+};
+
+function initPhotoPrefetch() {
+  if (!connectionAllowsPrefetch()) return;
+
+  // 1. Фоном — фото страниц, куда посетитель пойдёт дальше.
+  const page = location.pathname.split("/").pop() || "index.html";
+  const queue = NEXT_PAGE_PHOTOS[page] || [];
+  const startBackground = () => queue.forEach(warmUp);
+  if ("requestIdleCallback" in window) {
+    requestIdleCallback(startBackground, { timeout: 4000 });
+  } else {
+    setTimeout(startBackground, 2500);
+  }
+
+  // 2. При наведении или касании ссылки — грузим её главное фото заранее.
+  const hoverHandler = (e) => {
+    const link = e.target.closest("a[href]");
+    if (!link) return;
+    const href = link.getAttribute("href").split("#")[0].split("/").pop();
+    if (HOVER_PHOTOS[href]) warmUp(HOVER_PHOTOS[href]);
+  };
+  document.addEventListener("pointerover", hoverHandler, { passive: true });
+  document.addEventListener("touchstart", hoverHandler, { passive: true });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  initPhotoFadeIn();
+  initPhotoPrefetch();
+});
