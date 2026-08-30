@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Дом №1 — Гостевой дом «Сатис»</title>
 <meta name="description" content="Дом №1: 5 комнат, 15 спальных мест, зал с барной стойкой, 2 кухонные зоны, 3 душевые, баня. От 1 500 ₽ с человека в сутки.">
 <link rel="canonical" href="dom-1.html">
@@ -142,7 +144,7 @@
           </div>
           <label class="consent">
             <input type="checkbox" name="consent" required>
-            <span>Согласен на обработку указанных данных для ответа на заявку — <a href="politika.html" target="_blank">как мы их обрабатываем</a></span>
+            <span>Согласен на обработку указанных данных для ответа на заявку — <a href="politika.html" target="_blank" rel="noopener">как мы их обрабатываем</a></span>
           </label>
           <button type="submit" class="btn btn-green btn-block">Отправить заявку</button>
         </form>
