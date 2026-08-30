@@ -250,3 +250,160 @@ document.addEventListener("DOMContentLoaded", () => {
   initPhotoFadeIn();
   initPhotoPrefetch();
 });
+
+/* =========================================================
+   Просмотр фото во весь экран
+   -----------------------------------------------------------
+   Клик по фото в галерее открывает крупную версию поверх
+   страницы. Листать можно стрелками, свайпом и кнопками,
+   закрыть — крестиком, клавишей Esc, свайпом вниз или щелчком
+   по фону. Пока грузится крупный файл, показывается тот же
+   кадр в мелком размере, поэтому окно не бывает пустым.
+   ========================================================= */
+
+function initLightbox() {
+  const items = [...document.querySelectorAll(".photo-grid .ph")];
+  if (!items.length) return;
+
+  // Собираем данные один раз: крупная версия, подпись, мелкая версия
+  const photos = items.map((el) => {
+    const img = el.querySelector("img");
+    const srcset = img.getAttribute("srcset") || "";
+    const widths = [...srcset.matchAll(/(\S+)\s+(\d+)w/g)]
+      .map((m) => ({ url: m[1], w: +m[2] }))
+      .sort((a, b) => b.w - a.w);
+    return {
+      full: widths.length ? widths[0].url : img.src,
+      small: img.currentSrc || img.src,
+      alt: img.alt || "",
+    };
+  });
+
+  items.forEach((el, i) => {
+    el.classList.add("ph--zoom");
+    el.setAttribute("role", "button");
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", `Открыть фото: ${photos[i].alt}`);
+  });
+
+  const box = document.createElement("div");
+  box.className = "lightbox";
+  box.setAttribute("role", "dialog");
+  box.setAttribute("aria-modal", "true");
+  box.innerHTML = `
+    <div class="lightbox-stage">
+      <div class="lightbox-bar">
+        <span class="lightbox-count"></span>
+        <button class="lightbox-btn lightbox-close" aria-label="Закрыть">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <button class="lightbox-btn lightbox-nav prev" aria-label="Предыдущее фото">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <div class="lightbox-spinner"></div>
+      <button class="lightbox-btn lightbox-nav next" aria-label="Следующее фото">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <p class="lightbox-caption"></p>`;
+  document.body.appendChild(box);
+
+  const stage = box.querySelector(".lightbox-stage");
+  const nextBtn = box.querySelector(".lightbox-nav.next");
+  let bigImg = null;
+
+  function ensureImg() {
+    if (bigImg) return bigImg;
+    bigImg = document.createElement("img");
+    bigImg.alt = "";
+    stage.insertBefore(bigImg, nextBtn);
+    return bigImg;
+  }
+  const caption = box.querySelector(".lightbox-caption");
+  const counter = box.querySelector(".lightbox-count");
+  let current = 0;
+  let lastFocused = null;
+
+  function show(i) {
+    current = (i + photos.length) % photos.length;
+    const p = photos[current];
+    ensureImg();
+    box.classList.remove("is-ready");
+    bigImg.classList.remove("is-loaded");
+    // сперва показываем уже загруженный мелкий кадр — окно не пустует
+    bigImg.src = p.small;
+    bigImg.alt = p.alt;
+    caption.textContent = p.alt;
+    counter.textContent = `${current + 1} из ${photos.length}`;
+
+    const full = new Image();
+    full.onload = () => {
+      if (photos[current] !== p) return;      // пока грузилось, уже пролистали
+      bigImg.src = p.full;
+      bigImg.classList.add("is-loaded");
+      box.classList.add("is-ready");
+    };
+    full.onerror = () => { bigImg.classList.add("is-loaded"); box.classList.add("is-ready"); };
+    full.src = p.full;
+    bigImg.classList.add("is-loaded");
+
+    // соседние кадры подгружаем заранее — листается без пауз
+    [current + 1, current - 1].forEach((n) => {
+      const nb = photos[(n + photos.length) % photos.length];
+      if (nb !== p) warmUp(nb.full);
+    });
+  }
+
+  function open(i) {
+    lastFocused = document.activeElement;
+    box.classList.add("is-open");
+    document.body.classList.add("lightbox-open");
+    show(i);
+    box.querySelector(".lightbox-close").focus();
+  }
+
+  function close() {
+    box.classList.remove("is-open");
+    document.body.classList.remove("lightbox-open");
+    if (bigImg) bigImg.removeAttribute("src");
+    if (lastFocused) lastFocused.focus();
+  }
+
+  items.forEach((el, i) => {
+    el.addEventListener("click", () => open(i));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); }
+    });
+  });
+
+  box.querySelector(".lightbox-close").addEventListener("click", close);
+  box.querySelector(".prev").addEventListener("click", () => show(current - 1));
+  box.querySelector(".next").addEventListener("click", () => show(current + 1));
+
+  // щелчок по фону закрывает, по самому фото — нет
+  box.addEventListener("click", (e) => {
+    if (e.target === box || e.target.classList.contains("lightbox-stage")) close();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (!box.classList.contains("is-open")) return;
+    if (e.key === "Escape") close();
+    else if (e.key === "ArrowLeft") show(current - 1);
+    else if (e.key === "ArrowRight") show(current + 1);
+  });
+
+  // свайпы: вбок — листать, вниз — закрыть
+  let sx = 0, sy = 0;
+  box.addEventListener("touchstart", (e) => {
+    sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+  }, { passive: true });
+  box.addEventListener("touchend", (e) => {
+    const dx = e.changedTouches[0].clientX - sx;
+    const dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(current + (dx < 0 ? 1 : -1));
+    else if (dy > 90 && Math.abs(dx) < 60) close();
+  }, { passive: true });
+}
+
+document.addEventListener("DOMContentLoaded", initLightbox);
