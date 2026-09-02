@@ -1260,3 +1260,15 @@ body.lightbox-open { overflow: hidden; }
   .lightbox-stage img { transition: none; opacity: 1; }
   .lightbox-spinner { animation: none; }
 }
+
+/* ---------- Раскладка из четырёх карточек ----------
+   Стоит в конце файла намеренно: общие мобильные правила выше
+   переводят .audience-grid в одну колонку, и без этого блока
+   четыре шага заселения растянулись бы в длинный столбец. */
+.audience-grid--four { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 980px) {
+  .audience-grid--four { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  .audience-grid--four { grid-template-columns: 1fr; }
+}
