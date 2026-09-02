@@ -326,6 +326,9 @@ h3 { font-size: 1.25rem; }
   gap: 40px;
   align-items: start;
 }
+/* Без min-width:0 колонка грида раздувается под самый широкий элемент внутри
+   (например, таблицу с min-width) и утаскивает страницу вбок. */
+.house-layout > * { min-width: 0; }
 .booking-card {
   background: var(--card);
   border: 1px solid var(--border);
@@ -391,6 +394,11 @@ h3 { font-size: 1.25rem; }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+/* Один тариф в блоке — не растягиваем его на всю ширину, а ставим по центру. */
+.price-grid--single {
+  grid-template-columns: minmax(0, 420px);
+  justify-content: center;
 }
 .price-card {
   background: var(--card);
