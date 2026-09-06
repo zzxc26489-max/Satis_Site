@@ -1463,5 +1463,57 @@
   ],
   "group": "dom-2",
   "ratio": 0.75
+ },
+ "territoriya/territoriya-detskaya-zona-1": {
+  "alt": "Детская зона во дворе — качели и песочница",
+  "w": 1152,
+  "h": 1536,
+  "color": "#65776f",
+  "sizes": [
+   400,
+   800,
+   1600
+  ],
+  "group": "territoriya",
+  "ratio": 0.75
+ },
+ "territoriya/territoriya-detskaya-zona-2": {
+  "alt": "Стол и лавки рядом с детскими качелями",
+  "w": 1152,
+  "h": 1536,
+  "color": "#68755d",
+  "sizes": [
+   400,
+   800,
+   1600
+  ],
+  "group": "territoriya",
+  "ratio": 0.75
+ },
+ "territoriya/territoriya-detskaya-zona-3": {
+  "alt": "Крытый стол для отдыха на зелёной территории",
+  "w": 1152,
+  "h": 1536,
+  "color": "#6b7859",
+  "sizes": [
+   400,
+   800,
+   1600
+  ],
+  "group": "territoriya",
+  "ratio": 0.75
+ },
+ "territoriya/territoriya-detskaya-zona-4": {
+  "alt": "Садовая дорожка к крытой зоне отдыха",
+  "w": 1152,
+  "h": 1536,
+  "color": "#767862",
+  "sizes": [
+   400,
+   800,
+   1600
+  ],
+  "group": "territoriya",
+  "ratio": 0.75
  }
 }
