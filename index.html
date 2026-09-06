@@ -48,11 +48,18 @@
   <!-- ---------- Первый экран ---------- -->
   <section class="hero-home">
     <div class="hero-home__media">
-      <img src="assets/img/foto/hero-1200.webp"
-           srcset="assets/img/foto/hero-800.webp 800w, assets/img/foto/hero-1200.webp 1200w, assets/img/foto/hero-1600.webp 1600w"
-           sizes="100vw" width="5712" height="4284"
-           alt="Двор гостевого дома «Сатис»: лежаки в тени деревьев"
-           fetchpriority="high" decoding="async">
+      <picture>
+        <!-- На телефоне экран вертикальный: горизонтальный кадр пришлось бы
+             обрезать больше чем наполовину, поэтому отдаём вертикальный. -->
+        <source media="(max-width: 760px)"
+                srcset="assets/img/foto/territoriya/territoriya-obshchiy-vid-4-400.webp 400w, assets/img/foto/territoriya/territoriya-obshchiy-vid-4-800.webp 800w, assets/img/foto/territoriya/territoriya-obshchiy-vid-4-1600.webp 1600w"
+                sizes="100vw" width="4284" height="5712">
+        <img src="assets/img/foto/hero-1200.webp"
+             srcset="assets/img/foto/hero-800.webp 800w, assets/img/foto/hero-1200.webp 1200w, assets/img/foto/hero-1600.webp 1600w"
+             sizes="100vw" width="5712" height="4284"
+             alt="Двор гостевого дома «Сатис»: лежаки в тени деревьев"
+             fetchpriority="high" decoding="async">
+      </picture>
     </div>
     <div class="container hero-home__inner">
       <span class="hero-home__badge">
