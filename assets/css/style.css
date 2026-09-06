@@ -1626,7 +1626,6 @@ body.floating-header .hero-home__inner { padding-top: calc(var(--header-h) + 40p
 }
 .photo-band__media { position: absolute; inset: 0; z-index: -2; }
 .photo-band__media img { width: 100%; height: 100%; object-fit: cover; }
-.photo-band--right .photo-band__media img { object-position: 50% 72%; }
 .photo-band__media::after {
   content: "";
   position: absolute;
