@@ -1515,5 +1515,18 @@
   ],
   "group": "territoriya",
   "ratio": 0.75
+ },
+ "territoriya/territoriya-obshchiy-vid-7": {
+  "alt": "Панорамный вид на зелёный двор и сад",
+  "w": 1152,
+  "h": 1536,
+  "color": "#7a8269",
+  "sizes": [
+   400,
+   800,
+   1600
+  ],
+  "group": "territoriya",
+  "ratio": 0.75
  }
 }
