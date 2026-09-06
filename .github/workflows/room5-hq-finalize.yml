@@ -1,0 +1,46 @@
+name: Finalize room 5 HQ photos
+on:
+  push:
+    branches:
+      - claude/guest-house-website-satis-yo7i1v
+    paths:
+      - tools/room5-hq/ready.txt
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/guest-house-website-satis-yo7i1v
+          fetch-depth: 1
+      - name: Rebuild high quality room 5 images
+        shell: bash
+        run: |
+          set -euo pipefail
+          for n in 1 2 3 4; do
+            cat tools/room5-hq/${n}.*.b64 | tr -d '\n' | base64 --decode > assets/img/foto/dom-2/dom-2-komnata-5-${n}-hq.webp
+            test $(stat -c%s assets/img/foto/dom-2/dom-2-komnata-5-${n}-hq.webp) -gt 90000
+          done
+          python3 - <<'PY'
+          from pathlib import Path
+          p = Path('assets/js/main.js')
+          s = p.read_text(encoding='utf-8')
+          for n in range(1, 5):
+              s = s.replace(f'dom-2-komnata-5-{n}.webp', f'dom-2-komnata-5-{n}-hq.webp')
+          p.write_text(s, encoding='utf-8')
+          PY
+          rm -rf tools/room5-hq
+          rm -f .github/workflows/room5-hq-finalize.yml
+      - name: Commit and publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "Room photo update"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- assets/img/foto/dom-2 assets/js/main.js tools/room5-hq .github/workflows/room5-hq-finalize.yml
+          git diff --cached --check
+          git commit -m "Дом №2: заменить фото комнаты 5 на качественные версии"
+          git push origin HEAD:claude/guest-house-website-satis-yo7i1v
