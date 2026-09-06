@@ -1124,6 +1124,72 @@ h1, h2, h3, h4 { overflow-wrap: break-word; }
   aspect-ratio: auto;
 }
 
+/* ---------- Карточки комнат ----------
+   Вместо кучи фото сразу — карточка на комнату: обложка, название и
+   сколько внутри кадров. Клик открывает только фото этой комнаты.
+   Остальные снимки лежат в скрытом блоке .room-photos и не грузятся,
+   пока карточку не открыли. */
+.room-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 8px 0 34px;
+}
+.room-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-align: left;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow .2s ease, transform .2s ease, border-color .2s ease;
+}
+.room-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); border-color: var(--green); }
+.room-card:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+.room-thumb {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  background: var(--bg-soft);
+  /* Карточка — флекс-колонка, а у флекс-элемента min-height:auto не даёт
+     ужаться ниже картинки: без этих двух строк вертикальные кадры
+     растягивали обложку во всю высоту вместо ровного 4:3. */
+  flex: none;
+  min-height: 0;
+}
+.room-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.room-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 22, 14, 0);
+  transition: background .15s ease;
+}
+.room-card:hover .room-thumb::after { background: rgba(20, 22, 14, .12); }
+.room-count {
+  position: absolute;
+  z-index: 1;
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(20, 22, 14, .72);
+  color: #fff;
+  font-size: .78rem;
+  font-weight: 700;
+}
+.room-body { padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 2px; }
+.room-name { font-family: var(--font-display); font-weight: 700; font-size: 1.02rem; }
+.room-meta { color: var(--muted); font-size: .9rem; }
+@media (max-width: 980px) { .room-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .room-grid { grid-template-columns: 1fr; } }
+
 .photo-block { margin-bottom: 34px; }
 .photo-block h3 { margin-bottom: 12px; }
 .photo-caption {

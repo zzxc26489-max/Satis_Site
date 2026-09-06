@@ -262,29 +262,28 @@ document.addEventListener("DOMContentLoaded", () => {
    ========================================================= */
 
 function initLightbox() {
-  const items = [...document.querySelectorAll(".photo-grid .ph")];
-  if (!items.length) return;
+  const grids = [...document.querySelectorAll(".photo-grid")].filter((g) => g.querySelector(".ph"));
+  const cards = [...document.querySelectorAll(".room-card[data-gallery]")];
+  if (!grids.length && !cards.length) return;
 
-  // Собираем данные один раз: крупная версия, подпись, мелкая версия
-  const photos = items.map((el) => {
-    const img = el.querySelector("img");
-    const srcset = img.getAttribute("srcset") || "";
-    const widths = [...srcset.matchAll(/(\S+)\s+(\d+)w/g)]
-      .map((m) => ({ url: m[1], w: +m[2] }))
-      .sort((a, b) => b.w - a.w);
-    return {
-      full: widths.length ? widths[0].url : img.src,
-      small: img.currentSrc || img.src,
-      alt: img.alt || "",
-    };
-  });
+  // Данные фото читаются из разметки: крупная версия, мелкая и подпись.
+  function readPhotos(items) {
+    return items.map((el) => {
+      const img = el.querySelector("img");
+      const widths = [...(img.getAttribute("srcset") || "").matchAll(/(\S+)\s+(\d+)w/g)]
+        .map((m) => ({ url: m[1], w: +m[2] }))
+        .sort((a, b) => b.w - a.w);
+      return {
+        full: widths.length ? widths[0].url : img.src,
+        // У скрытых галерей currentSrc пустой — берём самый мелкий файл.
+        // Он и покажется заглушкой, пока грузится крупный кадр.
+        small: img.currentSrc || (widths.length ? widths[widths.length - 1].url : img.src),
+        alt: img.alt || "",
+      };
+    });
+  }
 
-  items.forEach((el, i) => {
-    el.classList.add("ph--zoom");
-    el.setAttribute("role", "button");
-    el.setAttribute("tabindex", "0");
-    el.setAttribute("aria-label", `Открыть фото: ${photos[i].alt}`);
-  });
+  let photos = [];
 
   const box = document.createElement("div");
   box.className = "lightbox";
@@ -326,12 +325,13 @@ function initLightbox() {
   let lastFocused = null;
 
   function show(i) {
+    if (!photos.length) return;
     current = (i + photos.length) % photos.length;
     const p = photos[current];
     ensureImg();
     box.classList.remove("is-ready");
     bigImg.classList.remove("is-loaded");
-    // сперва показываем уже загруженный мелкий кадр — окно не пустует
+    // сперва показываем мелкий кадр — окно не пустует
     bigImg.src = p.small;
     bigImg.alt = p.alt;
     caption.textContent = p.alt;
@@ -355,7 +355,9 @@ function initLightbox() {
     });
   }
 
-  function open(i) {
+  function open(list, i) {
+    if (!list.length) return;
+    photos = list;
     lastFocused = document.activeElement;
     box.classList.add("is-open");
     document.body.classList.add("lightbox-open");
@@ -370,11 +372,29 @@ function initLightbox() {
     if (lastFocused) lastFocused.focus();
   }
 
-  items.forEach((el, i) => {
-    el.addEventListener("click", () => open(i));
-    el.addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(i); }
+  // Обычная галерея: каждая сетка листается сама по себе.
+  grids.forEach((grid) => {
+    const items = [...grid.querySelectorAll(".ph")];
+    items.forEach((el, i) => {
+      const img = el.querySelector("img");
+      el.classList.add("ph--zoom");
+      el.setAttribute("role", "button");
+      el.setAttribute("tabindex", "0");
+      el.setAttribute("aria-label", `Открыть фото: ${img ? img.alt : ""}`);
+      el.addEventListener("click", () => open(readPhotos(items), i));
+      el.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(readPhotos(items), i); }
+      });
     });
+  });
+
+  // Карточка комнаты: открывает только фото этой комнаты.
+  cards.forEach((card) => {
+    const store = document.getElementById(card.dataset.gallery);
+    if (!store) return;
+    const items = [...store.querySelectorAll(".ph")];
+    if (!items.length) return;
+    card.addEventListener("click", () => open(readPhotos(items), 0));
   });
 
   box.querySelector(".lightbox-close").addEventListener("click", close);
