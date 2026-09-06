@@ -1650,5 +1650,14 @@
  "dom-2/dom-2-tualet-4-otdelnyy-1": {
   "alt": "Дом №2, левое крыло — отдельный туалет с раковиной",
   "w": 1200, "h": 1600, "color": "#a57653", "sizes": [400, 800, 1600], "group": "dom-2", "ratio": 0.75
- }
+ },
+ "banya-1/banya-1-dopolnitelno-1": {"alt":"Баня при Доме №1 — предбанник со столом и лавками","w":1200,"h":1600,"color":"#90795f","sizes":[400,800,1600],"group":"banya-1","ratio":0.75},
+ "banya-1/banya-1-dopolnitelno-2": {"alt":"Баня при Доме №1 — моечная с душем","w":1200,"h":1600,"color":"#7f7b78","sizes":[400,800,1600],"group":"banya-1","ratio":0.75},
+ "banya-1/banya-1-dopolnitelno-3": {"alt":"Баня при Доме №1 — санузел","w":1200,"h":1600,"color":"#908c8d","sizes":[400,800,1600],"group":"banya-1","ratio":0.75},
+ "banya-2/banya-2-dopolnitelno-1": {"alt":"Баня при Доме №2 — предбанник со столом","w":1200,"h":1600,"color":"#9a7557","sizes":[400,800,1600],"group":"banya-2","ratio":0.75},
+ "banya-2/banya-2-dopolnitelno-2": {"alt":"Баня при Доме №2 — парная","w":1200,"h":1600,"color":"#7f7062","sizes":[400,800,1600],"group":"banya-2","ratio":0.75},
+ "banya-2/banya-2-dopolnitelno-3": {"alt":"Баня при Доме №2 — душ","w":1200,"h":1600,"color":"#8e8b87","sizes":[400,800,1600],"group":"banya-2","ratio":0.75},
+ "territoriya/territoriya-besedka-4-1": {"alt":"Беседка Дома №2 среди зелени","w":1600,"h":1200,"color":"#60654d","sizes":[400,800,1600],"group":"territoriya","ratio":1.3333},
+ "territoriya/territoriya-besedka-4-2": {"alt":"Стол в беседке Дома №2","w":1200,"h":1600,"color":"#746d56","sizes":[400,800,1600],"group":"territoriya","ratio":0.75},
+ "territoriya/territoriya-besedka-4-3": {"alt":"Беседка Дома №2 — стол и лавки","w":1200,"h":1600,"color":"#7c6654","sizes":[400,800,1600],"group":"territoriya","ratio":0.75}
 }
