@@ -1615,32 +1615,35 @@ body.floating-header .hero-home__inner { padding-top: calc(var(--header-h) + 40p
 .stay-card__price span { display: block; font-weight: 500; color: var(--muted); font-size: .82rem; }
 
 /* ---------- Фотополоса во всю ширину ---------- */
+/* Фото и текст делят полосу пополам. Раньше текст лежал поверх фото,
+   и на широких экранах кадр 4:3 приходилось резать до узкой ленты —
+   от фотографии оставался нечитаемый крупный план. */
 .photo-band {
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  background: var(--green-deep);
   color: #fff;
-  isolation: isolate;
-  display: flex;
-  align-items: center;
-  min-height: 520px;
+  /* Высота подобрана так, чтобы колонка с фото была близка к 4:3
+     и кадр почти не обрезался ни на ноутбуке, ни на большом мониторе. */
+  min-height: clamp(420px, 38vw, 620px);
   overflow: hidden;
 }
-.photo-band__media { position: absolute; inset: 0; z-index: -2; }
+.photo-band__media { position: relative; grid-column: 1; grid-row: 1; }
 .photo-band__media img { width: 100%; height: 100%; object-fit: cover; }
-.photo-band__media::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(14, 17, 11, .88) 0%, rgba(14, 17, 11, .7) 42%, rgba(14, 17, 11, .25) 78%);
+.photo-band__inner {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  padding: clamp(36px, 4vw, 64px);
 }
-.photo-band--right .photo-band__media::after {
-  background: linear-gradient(270deg, rgba(14, 17, 11, .88) 0%, rgba(14, 17, 11, .7) 42%, rgba(14, 17, 11, .25) 78%);
-}
-.photo-band__inner { padding: 84px 24px; }
-.photo-band--right .photo-band__inner { display: flex; justify-content: flex-end; }
+.photo-band--right .photo-band__media { grid-column: 2; }
+.photo-band--right .photo-band__inner { grid-column: 1; justify-content: flex-end; }
 .photo-band__text { max-width: 520px; }
 .photo-band__text .accent { display: block; font-size: 1.9rem; color: var(--orange-soft); margin-bottom: 4px; }
 .photo-band__text h2 { color: #fff; }
-.photo-band__text p { color: #ddd9ca; }
+.photo-band__text p { color: #ccd2c1; }
 .photo-band__list {
   display: flex;
   flex-wrap: wrap;
@@ -1648,7 +1651,7 @@ body.floating-header .hero-home__inner { padding-top: calc(var(--header-h) + 40p
   margin: 0 0 24px;
 }
 .photo-band__list li {
-  background: rgba(255, 255, 255, .13);
+  background: rgba(255, 255, 255, .1);
   border: 1px solid rgba(255, 255, 255, .18);
   border-radius: 999px;
   padding: 7px 15px;
@@ -1709,15 +1712,16 @@ body.reveal-on .reveal.is-in { opacity: 1; transform: none; }
   .stay-grid { grid-template-columns: 1fr 1fr; }
   .numbers { grid-template-columns: repeat(2, 1fr); gap: 26px 20px; }
   .form-band__grid { grid-template-columns: 1fr; gap: 32px; }
-  .photo-band { min-height: 440px; }
-  .photo-band--right .photo-band__inner { justify-content: flex-start; }
-  /* Текст ложится поверх всей фотографии — затемняем кадр целиком. */
-  .photo-band__media::after,
-  .photo-band--right .photo-band__media::after {
-    background:
-      linear-gradient(0deg, rgba(14, 17, 11, .93) 8%, rgba(14, 17, 11, .74) 55%, rgba(14, 17, 11, .6) 100%),
-      rgba(14, 17, 11, .18);
+  /* Узкая колонка текста рядом с фото не читается — ставим их друг под друга. */
+  .photo-band {
+    grid-template-columns: 1fr;
+    min-height: 0;
   }
+  .photo-band__media,
+  .photo-band--right .photo-band__media { grid-column: 1; grid-row: 1; aspect-ratio: 4 / 3; }
+  .photo-band__inner,
+  .photo-band--right .photo-band__inner { grid-column: 1; grid-row: 2; justify-content: flex-start; }
+  .photo-band__text { max-width: none; }
 }
 @media (max-width: 760px) {
   .hero-home { min-height: clamp(520px, 86svh, 700px); }
@@ -1740,7 +1744,6 @@ body.reveal-on .reveal.is-in { opacity: 1; transform: none; }
   .trust-bar__item { border-right: none; padding: 16px 20px; }
   .trust-bar__item:not(:last-child) { border-bottom: 1px solid var(--border); }
   .stay-grid { grid-template-columns: 1fr; }
-  .photo-band__inner { padding: 64px 24px; }
   .form-band { padding: 52px 0; }
   .form-band__card { padding: 24px 22px; }
 }
