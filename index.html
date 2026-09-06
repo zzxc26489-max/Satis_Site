@@ -14,10 +14,11 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏡</text></svg>">
 <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/lora-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/caveat-accent.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="home">
 
 <header class="site-header">
   <div class="container">
@@ -43,157 +44,230 @@
 </header>
 
 <main>
-  <div class="container">
-    <section class="hero">
-      <img class="hero-bg" src="assets/img/foto/hero-1200.webp" srcset="assets/img/foto/hero-800.webp 800w, assets/img/foto/hero-1200.webp 1200w, assets/img/foto/hero-1600.webp 1600w" sizes="(max-width: 1240px) 100vw, 1132px" width="5712" height="4284" alt="Двор гостевого дома «Сатис»: лежаки в тени деревьев" fetchpriority="high" decoding="async">
-      <div class="hero-content">
-        <span class="hero-badge">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#c9d6b6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5c0 7.5-9 12-9 12s-9-4.5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10.5" r="3"/></svg>
-          рп Сатис, 20 км от Первомайска
-        </span>
-        <h1>Три дома, 36 мест и своя баня</h1>
-        <p class="lead">Снимите спальное место, комнату, часть дома или всю территорию. Для отдыха с семьёй, размещения бригады и мероприятий.</p>
-        <div class="hero-price">
-          <span class="amount">от 1 500 ₽</span>
-          <span class="per">за человека в сутки</span>
-        </div>
-        <div class="hero-cta">
-          <a href="#zayavka" class="btn btn-orange">Узнать свободные даты</a>
-          <a href="#" data-contact="whatsapp-href" data-whatsapp-text="Здравствуйте! Хочу узнать про свободные даты в гостевом доме «Сатис»." target="_blank" rel="noopener" class="btn btn-green">Написать в WhatsApp</a>
-          <a data-contact="phone-href" class="btn btn-ghost">Позвонить</a>
-        </div>
-        <p class="hero-meta">
-          <span>заезд после 14:00</span><span class="dot">•</span>
-          <span>выезд до 12:00</span><span class="dot">•</span>
-          <span>от 1 суток</span><span class="dot">•</span>
-          <span>без предоплаты</span>
-        </p>
-      </div>
-    </section>
 
-    <div class="trust-grid">
-      <div class="trust-card">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b7047" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v6c0 4.5-3.4 7.3-8 8.5C7.4 20.3 4 17.5 4 13V7z"/><path d="M9 12l2 2 4-4"/></svg>
+  <!-- ---------- Первый экран ---------- -->
+  <section class="hero-home">
+    <div class="hero-home__media">
+      <img src="assets/img/foto/hero-1200.webp"
+           srcset="assets/img/foto/hero-800.webp 800w, assets/img/foto/hero-1200.webp 1200w, assets/img/foto/hero-1600.webp 1600w"
+           sizes="100vw" width="5712" height="4284"
+           alt="Двор гостевого дома «Сатис»: лежаки в тени деревьев"
+           fetchpriority="high" decoding="async">
+    </div>
+    <div class="container hero-home__inner">
+      <span class="hero-home__badge">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cfe0b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5c0 7.5-9 12-9 12s-9-4.5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10.5" r="3"/></svg>
+        рп Сатис, 20 км от Первомайска
+      </span>
+      <p class="hero-home__eyebrow accent">здесь по-домашнему</p>
+      <h1>Три дома, 36 мест и своя баня</h1>
+      <p class="hero-home__lead">Снимите спальное место, комнату, часть дома или всю территорию — для отдыха с семьёй, размещения бригады и мероприятий.</p>
+      <div class="hero-home__price">
+        <span class="amount">от 1 500 ₽</span>
+        <span class="per">за человека в сутки</span>
+      </div>
+      <div class="hero-home__cta">
+        <a href="#zayavka" class="btn btn-orange">Узнать свободные даты</a>
+        <a href="#" data-contact="whatsapp-href" data-whatsapp-text="Здравствуйте! Хочу узнать про свободные даты в гостевом доме «Сатис»." target="_blank" rel="noopener" class="btn btn-green">Написать в WhatsApp</a>
+        <a data-contact="phone-href" class="btn btn-ghost">Позвонить</a>
+      </div>
+      <ul class="hero-home__meta">
+        <li>заезд после 14:00</li>
+        <li>выезд до 12:00</li>
+        <li>от 1 суток</li>
+        <li>без предоплаты</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="trust-bar">
+      <div class="trust-bar__item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v6c0 4.5-3.4 7.3-8 8.5C7.4 20.3 4 17.5 4 13V7z"/><path d="M9 12l2 2 4-4"/></svg>
         <div><div class="t">Договор на месте</div><div class="s">без сюрпризов по оплате</div></div>
       </div>
-      <div class="trust-card">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b7047" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 11h20"/></svg>
+      <div class="trust-bar__item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 11h20"/></svg>
         <div><div class="t">Оплата от организации</div><div class="s">наличные, перевод, счёт</div></div>
       </div>
-      <div class="trust-card">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b7047" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16"/><path d="M10 20v-5h4v5"/></svg>
+      <div class="trust-bar__item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16"/><path d="M10 20v-5h4v5"/></svg>
         <div><div class="t">Закрытая территория</div><div class="s">ворота, камеры, парковка</div></div>
       </div>
-      <div class="trust-card">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#5b7047" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <div class="trust-bar__item">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
         <div><div class="t">Отвечаем в тот же день</div><div class="s">звонки с 9:00 до 22:00</div></div>
       </div>
     </div>
   </div>
 
+  <!-- ---------- Форматы проживания ---------- -->
   <section class="section" id="doma">
     <div class="container">
-      <div class="section-head">
-        <h2>Выберите формат проживания</h2>
-        <p>Можно снять спальное место, комнату, крыло или часть дома, дом целиком, баню либо всю территорию под мероприятие. Если комната занята — мы никого не подселяем, а заселяем в свободную.</p>
+      <div class="section-lead reveal">
+        <span class="accent">выбирайте, как удобно</span>
+        <h2>Место, комната, крыло или вся территория</h2>
+        <p>Можно снять спальное место, комнату, часть дома, дом целиком, баню либо всю территорию под мероприятие. Если комната занята — мы никого не подселяем, а заселяем в свободную.</p>
       </div>
 
-      <div class="house-grid">
-        <div class="house-card">
-          <div class="thumb" style="background:#aeb1ab"><img src="assets/img/foto/dom-1/dom-1-fasad-1-400.webp" srcset="assets/img/foto/dom-1/dom-1-fasad-1-400.webp 400w, assets/img/foto/dom-1/dom-1-fasad-1-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 1200px) 30vw, 365px" width="4284" height="3199" alt="Дом №1 — вид с улицы" loading="lazy" decoding="async"></div>
-          <div class="body">
+      <div class="numbers reveal">
+        <div class="numbers__item">
+          <div class="numbers__num">3</div>
+          <div class="numbers__label">дома на одной территории</div>
+        </div>
+        <div class="numbers__item">
+          <div class="numbers__num">36</div>
+          <div class="numbers__label">спальных мест посуточно</div>
+        </div>
+        <div class="numbers__item">
+          <div class="numbers__num">16</div>
+          <div class="numbers__label">комнат разной вместимости</div>
+        </div>
+        <div class="numbers__item">
+          <div class="numbers__num">2</div>
+          <div class="numbers__label">бани с парной и предбанником</div>
+        </div>
+      </div>
+
+      <div class="stay-grid reveal">
+        <article class="stay-card">
+          <div class="stay-card__media" style="background:#64799d">
+            <img src="assets/img/foto/dom-1/dom-1-fasad-1-800.webp"
+                 srcset="assets/img/foto/dom-1/dom-1-fasad-1-400.webp 400w, assets/img/foto/dom-1/dom-1-fasad-1-800.webp 800w"
+                 sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px"
+                 width="4284" height="3199" alt="Дом №1 — вид с улицы" loading="lazy" decoding="async">
+            <span class="stay-card__tag">12 мест</span>
+          </div>
+          <div class="stay-card__body">
             <h3>Дом №1</h3>
             <div class="chip-row">
-              <span class="chip">12 кроватей</span>
               <span class="chip">5 комнат</span>
               <span class="chip">зал с баром</span>
               <span class="chip">баня</span>
             </div>
-            <div class="amenities">Два этажа, банкетный зал и Wi-Fi. Баня с отдельным входом.</div>
-            <div class="card-foot">
-              <div class="price">от 1 500 ₽ <span>/сутки с человека</span></div>
+            <p class="stay-card__desc">Два этажа, банкетный зал и Wi-Fi. Баня с отдельным входом.</p>
+            <div class="stay-card__foot">
+              <div class="stay-card__price">от 1 500 ₽ <span>в сутки с человека</span></div>
               <a href="dom-1.html" class="btn btn-outline btn-sm">Подробнее</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="house-card">
-          <div class="thumb" style="background:#a3abae"><img src="assets/img/foto/dom-2/dom-2-fasad-2-400.webp" srcset="assets/img/foto/dom-2/dom-2-fasad-2-400.webp 400w, assets/img/foto/dom-2/dom-2-fasad-2-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 1200px) 30vw, 365px" width="1220" height="843" alt="Дом №2 — вид с улицы" loading="lazy" decoding="async"></div>
-          <div class="body">
+        <article class="stay-card">
+          <div class="stay-card__media" style="background:#a3abae">
+            <img src="assets/img/foto/dom-2/dom-2-fasad-2-800.webp"
+                 srcset="assets/img/foto/dom-2/dom-2-fasad-2-400.webp 400w, assets/img/foto/dom-2/dom-2-fasad-2-800.webp 800w"
+                 sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px"
+                 width="1220" height="843" alt="Дом №2 — вид с улицы" loading="lazy" decoding="async">
+            <span class="stay-card__tag">24 места</span>
+          </div>
+          <div class="stay-card__body">
             <h3>Дом №2</h3>
             <div class="chip-row">
-              <span class="chip">24 кровати</span>
               <span class="chip">8 комнат</span>
               <span class="chip">4 кухни</span>
               <span class="chip">4 душевые</span>
             </div>
-            <div class="amenities">Делится на изолированные части: у каждой своя кухня и санузел.</div>
-            <div class="card-foot">
-              <div class="price">от 1 500 ₽ <span>/сутки с человека</span></div>
+            <p class="stay-card__desc">Делится на изолированные части: у каждой своя кухня и санузел.</p>
+            <div class="stay-card__foot">
+              <div class="stay-card__price">от 1 500 ₽ <span>в сутки с человека</span></div>
               <a href="dom-2.html" class="btn btn-outline btn-sm">Подробнее</a>
             </div>
           </div>
-        </div>
+        </article>
 
-        <div class="house-card">
-          <div class="thumb" style="background:#888d7f"><img src="assets/img/foto/dom-3/dom-3-fasad-400.webp" srcset="assets/img/foto/dom-3/dom-3-fasad-400.webp 400w, assets/img/foto/dom-3/dom-3-fasad-800.webp 800w, assets/img/foto/dom-3/dom-3-fasad-1600.webp 1600w" sizes="(max-width: 760px) 92vw, (max-width: 1200px) 30vw, 365px" width="8192" height="6144" alt="Дом через дорогу — вид с улицы" loading="lazy" decoding="async"></div>
-          <div class="body">
+        <article class="stay-card">
+          <div class="stay-card__media" style="background:#888d7f">
+            <img src="assets/img/foto/dom-3/dom-3-fasad-800.webp"
+                 srcset="assets/img/foto/dom-3/dom-3-fasad-400.webp 400w, assets/img/foto/dom-3/dom-3-fasad-800.webp 800w, assets/img/foto/dom-3/dom-3-fasad-1600.webp 1600w"
+                 sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px"
+                 width="8192" height="6144" alt="Дом через дорогу — вид с улицы" loading="lazy" decoding="async">
+            <span class="stay-card__tag">помесячно</span>
+          </div>
+          <div class="stay-card__body">
             <h3>Дом через дорогу</h3>
             <div class="chip-row">
-              <span class="chip">помесячно</span>
               <span class="chip">3 комнаты</span>
               <span class="chip">до 4 человек</span>
               <span class="chip">кухня и душ</span>
             </div>
-            <div class="amenities">Отдельный дом со своей территорией через дорогу от больших домов. Сдаётся только на месяц и целиком.</div>
-            <div class="card-foot">
-              <div class="price">35 000 ₽ <span>/месяц за дом</span></div>
+            <p class="stay-card__desc">Отдельный дом со своей территорией через дорогу от больших домов. Сдаётся только на месяц и целиком.</p>
+            <div class="stay-card__foot">
+              <div class="stay-card__price">35 000 ₽ <span>в месяц за дом</span></div>
               <a href="dom-cherez-dorogu.html" class="btn btn-outline btn-sm">Подробнее</a>
             </div>
           </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- Баня и территория ---------- -->
+  <section class="photo-band">
+    <div class="photo-band__media" style="background:#715841">
+      <img src="assets/img/foto/banya-1/banya-1-parnaya-1-1600.webp"
+           srcset="assets/img/foto/banya-1/banya-1-parnaya-1-800.webp 800w, assets/img/foto/banya-1/banya-1-parnaya-1-1600.webp 1600w"
+           sizes="100vw" width="5446" height="4084"
+           alt="Баня при Доме №1 — парная" loading="lazy" decoding="async">
+    </div>
+    <div class="container photo-band__inner">
+      <div class="photo-band__text">
+        <span class="accent">попариться и отдохнуть</span>
+        <h2>Две бани, мангал и зелёный двор</h2>
+        <p>Баня топится под вас — от двух часов. Рядом мангальная зона, беседка на компанию, место для костра и детская площадка с качелями и песочницей. За воротами — лес и озеро, магазины в пяти минутах пешком.</p>
+        <ul class="photo-band__list">
+          <li>Баня от 2 часов</li>
+          <li>Мангальная зона</li>
+          <li>Беседка</li>
+          <li>Костровое место</li>
+          <li>Детская зона</li>
+        </ul>
+        <div class="cta-buttons">
+          <a href="territoriya.html" class="btn btn-white">Территория и баня</a>
+          <a href="meropriyatiya.html" class="btn btn-ghost">Мероприятия</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--tight">
-    <div class="container">
-      <div class="section-head">
-        <h2>Кому подойдёт</h2>
-        <p>Одна территория закрывает разные задачи — от семейного отдыха до размещения бригады на несколько месяцев. Мероприятия тоже проводим: <a href="meropriyatiya.html" class="card-link">дни рождения, свадьбы и корпоративы</a>.</p>
-      </div>
-      <div class="split-grid">
-        <div class="split-card split-card--dark">
-          <h3>Бригаде на объекте</h3>
-          <p>Живёте в изолированной части дома: несколько комнат, своя кухня и душ. Готовите и убираете сами — за счёт этого цена ниже. Стиральные машины в общем доступе, парковка под рабочий транспорт.</p>
-          <div class="tag-row">
-            <span class="tag">При длительном проживании дешевле</span>
-            <span class="tag">Оплата от организации</span>
-          </div>
-          <a href="komandirovochnym.html" class="btn btn-orange">Условия для бригад</a>
-        </div>
-        <div class="split-card">
-          <h3>Отдохнуть и попариться</h3>
-          <p>Две бани, мангальная зона, беседка, место для костра и детская зона с качелями и песочницей. Рядом озеро и лес, магазины в пяти минутах пешком.</p>
-          <div class="tag-row">
-            <span class="tag">Баня от 2 часов</span>
-            <span class="tag">Можно с детьми</span>
-          </div>
-          <a href="territoriya.html" class="btn btn-green">Территория и баня</a>
+  <!-- ---------- Бригадам ---------- -->
+  <section class="photo-band photo-band--right">
+    <div class="photo-band__media" style="background:#596b80">
+      <img src="assets/img/foto/dom-2/dom-2-fasad-1-1600.webp"
+           srcset="assets/img/foto/dom-2/dom-2-fasad-1-800.webp 800w, assets/img/foto/dom-2/dom-2-fasad-1-1600.webp 1600w"
+           sizes="100vw" width="5712" height="4284"
+           alt="Дом №2 — вид с улицы" loading="lazy" decoding="async">
+    </div>
+    <div class="container photo-band__inner">
+      <div class="photo-band__text">
+        <span class="accent">командировочным и бригадам</span>
+        <h2>Изолированное крыло на всю бригаду</h2>
+        <p>Живёте отдельной частью дома: несколько комнат, своя кухня и душ. Готовите и убираете сами — за счёт этого цена ниже. Пять стиральных машин в общем доступе, парковка под рабочий транспорт, оплата от организации по счёту.</p>
+        <ul class="photo-band__list">
+          <li>При длительном проживании дешевле</li>
+          <li>Оплата по счёту</li>
+          <li>Парковка</li>
+        </ul>
+        <div class="cta-buttons">
+          <a href="komandirovochnym.html" class="btn btn-white">Условия для бригад</a>
+          <a href="tseny.html" class="btn btn-ghost">Цены</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section section--tight">
+  <!-- ---------- Почему выбирают ---------- -->
+  <section class="section">
     <div class="container">
-      <div class="section-head">
-        <h2>Почему выбирают нас</h2>
+      <div class="section-lead reveal">
+        <span class="accent">почему к нам возвращаются</span>
+        <h2>Всё для жизни, а не на пару часов</h2>
+        <p>Одна территория закрывает разные задачи — от семейного отдыха до размещения бригады на несколько месяцев.</p>
       </div>
-      <div class="feature-grid">
+      <div class="feature-grid reveal">
         <div class="feature-card"><h4>Много места</h4><p>36 спальных мест в двух больших домах — редкость для посёлка.</p></div>
         <div class="feature-card"><h4>Гибкое размещение</h4><p>Место, комната, крыло, дом целиком или вся территория.</p></div>
-        <div class="feature-card"><h4>Всё для жизни, а не на пару часов</h4><p>Кухни с посудой, бельё, полотенца, пять стиральных машин, телевизор в каждой комнате и Wi-Fi.</p></div>
+        <div class="feature-card"><h4>Кухни и техника</h4><p>Кухни с посудой, бельё, полотенца, пять стиральных машин, телевизор в каждой комнате и Wi-Fi.</p></div>
         <div class="feature-card"><h4>Баня и отдых</h4><p>Две бани, мангальная зона, беседка, место для костра.</p></div>
         <div class="feature-card"><h4>По-домашнему</h4><p>Гости чаще всего отмечают, что здесь спокойно и «как дома».</p></div>
         <div class="feature-card"><h4>Удобная оплата</h4><p>Наличные, перевод, карта, расчётный счёт для организаций.</p></div>
@@ -201,34 +275,38 @@
     </div>
   </section>
 
+  <!-- ---------- Честно о домах ---------- -->
   <section class="section section--tight">
     <div class="container">
-      <div class="honest-block">
+      <div class="honest-block reveal">
         <h2>Честно о том, какие это дома</h2>
         <p>Это не отель и не новые коттеджи. Дома живые и домашние: просторные, тёплые, со всем необходимым для проживания — но мебель разного возраста и не в едином стиле, где-то видны следы эксплуатации. Мы постепенно всё обновляем. Зато здесь по-настоящему удобно жить, готовить, отдыхать и размещаться большой компанией — и цена честная.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section--tight" id="zayavka">
-    <div class="container">
-      <div class="booking-block">
-        <div class="intro">
-          <h2>Свободны ли ваши даты?</h2>
-          <p>Напишите даты и сколько вас — посчитаем стоимость и подберём дом. Ответим в тот же день.</p>
-          <ul class="steps">
-            <li><span class="n">1</span> Вы оставляете номер</li>
-            <li><span class="n">2</span> Мы говорим цену и что свободно</li>
-            <li><span class="n">3</span> Бронируем без предоплаты</li>
-          </ul>
-          <div class="call-note">
-            <div class="label">Или просто позвоните</div>
-            <a class="tel" data-contact="phone-href"><span data-contact="phone-text">+7 903 602-34-08</span></a>
-            <div class="who"><span data-contact="phone-name">Ирина Николаевна</span> — бронирование, звонки с 9:00 до 22:00</div>
-          </div>
+  <!-- ---------- Заявка ---------- -->
+  <section class="form-band" id="zayavka">
+    <div class="container form-band__grid">
+      <div class="form-band__intro">
+        <span class="accent">ответим в тот же день</span>
+        <h2>Свободны ли ваши даты?</h2>
+        <p>Напишите даты и сколько вас — посчитаем стоимость и подберём дом.</p>
+        <ul class="steps">
+          <li><span class="n">1</span> Вы оставляете номер</li>
+          <li><span class="n">2</span> Мы говорим цену и что свободно</li>
+          <li><span class="n">3</span> Бронируем без предоплаты</li>
+        </ul>
+        <div class="form-band__call">
+          <div class="label">Или просто позвоните</div>
+          <a class="tel" data-contact="phone-href"><span data-contact="phone-text">+7 903 602-34-08</span></a>
+          <div class="who"><span data-contact="phone-name">Ирина Николаевна</span> — бронирование, звонки с 9:00 до 22:00</div>
         </div>
+      </div>
 
-        <div>
+      <div>
+        <div class="form-band__card">
+          <h3>Заявка на бронирование</h3>
           <form data-booking-form data-house-name="Гостевой дом «Сатис» (заявка с главной)">
             <div class="field">
               <label for="h-dates">Даты заезда и выезда</label>

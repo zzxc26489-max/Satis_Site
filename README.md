@@ -28,7 +28,7 @@ politika.html              Обработка персональных данн�
 ```
 assets/css/style.css   все стили сайта
 assets/css/fonts.css   подключение шрифтов
-assets/fonts/          шрифты Manrope и Lora (лежат локально, не зависят от Google)
+assets/fonts/          шрифты Manrope, Lora и Caveat (лежат локально, не зависят от Google)
 assets/js/main.js      контакты, мобильное меню, форма заявки
 assets/img/foto/       фотографии в WebP, по три размера на кадр
 assets/data/photos.json  список фото: подписи, размеры, цвет-заглушка
