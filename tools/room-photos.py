@@ -69,6 +69,8 @@ def main():
     ap.add_argument("--meta", default="")
     ap.add_argument("--photo", nargs=2, action="append", metavar=("ФАЙЛ", "ПОДПИСЬ"), required=True)
     ap.add_argument("--crop", help="left,top,right,bottom в долях")
+    ap.add_argument("--create-before", metavar="ИД",
+                    help="карточки ещё нет — создать её перед карточкой с этим id")
     args = ap.parse_args()
 
     crop = tuple(float(x) for x in args.crop.split(",")) if args.crop else None
@@ -110,9 +112,35 @@ def main():
                 f'alt="{html.escape(alt)}" loading="lazy" decoding="async">')
     pat = re.compile(rf'(data-gallery="{re.escape(args.gallery_id)}">\s*<span class="room-thumb">\s*)'
                      r'<img [^>]*>(\s*<span class="room-count">)\d+ фото', re.S)
-    if not pat.search(text):
-        sys.exit(f"не нашёл карточку {args.gallery_id} в {args.page}")
-    text = pat.sub(lambda m: m.group(1) + card_img + m.group(2) + f"{len(keys)} фото", text)
+    if pat.search(text):
+        text = pat.sub(lambda m: m.group(1) + card_img + m.group(2) + f"{len(keys)} фото", text)
+    elif args.create_before:
+        # Комнату снимают впервые — карточки ещё нет, собираем её целиком.
+        meta_html = (f'\n              <span class="room-meta">{html.escape(args.meta)}</span>'
+                     if args.meta else "")
+        new_card = (f'          <button class="room-card" type="button" data-gallery="{args.gallery_id}">\n'
+                    f'            <span class="room-thumb">\n'
+                    f'              {card_img}\n'
+                    f'              <span class="room-count">{len(keys)} фото</span>\n'
+                    f'            </span>\n'
+                    f'            <span class="room-body">\n'
+                    f'              <span class="room-name">{html.escape(args.title)}</span>{meta_html}\n'
+                    f'            </span>\n'
+                    f'          </button>\n')
+        marker = f'          <button class="room-card" type="button" data-gallery="{args.create_before}">'
+        if marker not in text:
+            sys.exit(f"не нашёл карточку {args.create_before}, перед которой вставлять")
+        text = text.replace(marker, new_card + marker, 1)
+        # и пустое хранилище — его тут же заполнит блок ниже
+        anchor = f'      <div class="room-photos" id="{args.create_before}" hidden>'
+        if anchor not in text:
+            sys.exit(f"не нашёл галерею {args.create_before}")
+        text = text.replace(anchor,
+                            f'      <div class="room-photos" id="{args.gallery_id}" hidden>\n      </div>\n'
+                            + anchor, 1)
+    else:
+        sys.exit(f"не нашёл карточку {args.gallery_id} в {args.page}. "
+                 f"Если комната снимается впервые — добавьте --create-before <ид следующей карточки>")
 
     # скрытая галерея
     rows = []
