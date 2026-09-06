@@ -1,0 +1,75 @@
+name: Finalize room 5 quality photos
+on:
+  push:
+    branches:
+      - claude/guest-house-website-satis-yo7i1v
+    paths:
+      - tools/room5-final/ready.txt
+permissions:
+  contents: write
+concurrency:
+  group: room5-final
+  cancel-in-progress: false
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/guest-house-website-satis-yo7i1v
+          fetch-depth: 1
+      - name: Decode selected room photos
+        shell: bash
+        run: |
+          set -euo pipefail
+          for n in 1 2 3 4; do
+            cat tools/room5-final/${n}.*.b64 | tr -d '\n' | base64 --decode > assets/img/foto/dom-2/dom-2-komnata-5-${n}-hq.webp
+            bytes=$(stat -c%s assets/img/foto/dom-2/dom-2-komnata-5-${n}-hq.webp)
+            test "$bytes" -gt 90000
+            head -c 4 assets/img/foto/dom-2/dom-2-komnata-5-${n}-hq.webp | grep -q RIFF
+          done
+      - name: Use the quality gallery on the site
+        shell: bash
+        run: |
+          cat > assets/js/main.js <<'EOF'
+          /* Room 5 gallery upgrade. Loads the original site script after the markup is upgraded. */
+          (function () {
+            function patchRoom5() {
+              const card = document.querySelector('.room-card[data-gallery="d2-komnata-5"]');
+              const gallery = document.getElementById('d2-komnata-5');
+              if (!card || !gallery) return;
+
+              card.innerHTML = `
+                <span class="room-thumb">
+                  <img src="assets/img/foto/dom-2/dom-2-komnata-5-1-hq.webp" width="900" height="675" alt="Комната 5 — 4 односпальные кровати и диван" loading="lazy" decoding="async">
+                  <span class="room-count">4 фото</span>
+                </span>
+                <span class="room-body">
+                  <span class="room-name">Комната 5</span>
+                  <span class="room-meta">4 односпальные кровати + диван</span>
+                </span>`;
+
+              gallery.innerHTML = `
+                <div class="ph"><img src="assets/img/foto/dom-2/dom-2-komnata-5-1-hq.webp" width="900" height="675" alt="Дом №2 — комната №5, общий вид" loading="lazy" decoding="async"></div>
+                <div class="ph"><img src="assets/img/foto/dom-2/dom-2-komnata-5-2-hq.webp" width="675" height="900" alt="Дом №2 — комната №5, кровати, диван и телевизор" loading="lazy" decoding="async"></div>
+                <div class="ph"><img src="assets/img/foto/dom-2/dom-2-komnata-5-3-hq.webp" width="900" height="675" alt="Дом №2 — комната №5, две кровати" loading="lazy" decoding="async"></div>
+                <div class="ph"><img src="assets/img/foto/dom-2/dom-2-komnata-5-4-hq.webp" width="675" height="900" alt="Дом №2 — комната №5, стол у окна" loading="lazy" decoding="async"></div>`;
+            }
+
+            document.addEventListener('DOMContentLoaded', patchRoom5, { once: true });
+            document.write('<script src="assets/js/main-original.js"></' + 'script>');
+          })();
+          EOF
+      - name: Clean temporary upload files and publish
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf tools/room5-final tools/room5-hq
+          rm -f .github/workflows/room5-hq-finalize.yml .github/workflows/room5-photo-import.yml .github/workflows/room5-photos-once.yml .github/workflows/room5-final.yml
+          git config user.name "Room photo update"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- assets/img/foto/dom-2 assets/js/main.js tools/room5-final tools/room5-hq .github/workflows/room5-hq-finalize.yml .github/workflows/room5-photo-import.yml .github/workflows/room5-photos-once.yml .github/workflows/room5-final.yml
+          git diff --cached --check
+          git commit -m "Дом №2: качественные фото комнаты 5"
+          git push origin HEAD:claude/guest-house-website-satis-yo7i1v
