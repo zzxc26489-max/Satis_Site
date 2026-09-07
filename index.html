@@ -13,7 +13,7 @@
 <meta property="og:description" content="Гостевые дома в рп Сатис, Первомайск, Нижегородская область: 36 спальных мест посуточно от 1 500 ₽ с человека. Кухни, душевые, Wi-Fi, бани, мангальная зона. Отдельный дом через дорогу — помесячно.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏡</text></svg>">
 <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/lora-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/caveat-accent.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
 <link rel="stylesheet" href="assets/css/style.css">
@@ -37,7 +37,7 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span data-contact="phone-text">+7 903 602-34-08</span>
       </a>
-      <a href="kontakty.html#bron" class="btn btn-green btn-sm">Забронировать</a>
+      <a href="kontakty.html#bron" class="btn btn-primary btn-sm">Забронировать</a>
       <button class="nav-toggle" aria-label="Открыть меню"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -62,47 +62,56 @@
       </picture>
     </div>
     <div class="container hero-home__inner">
-      <span class="hero-home__badge">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#cfe0b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10.5c0 7.5-9 12-9 12s-9-4.5-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10.5" r="3"/></svg>
+      <span class="hero-home__badge anim" style="--d:0">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg>
         рп Сатис, 20 км от Первомайска
       </span>
-      <p class="hero-home__eyebrow accent">здесь по-домашнему</p>
-      <h1>Три дома, 36 мест и своя баня</h1>
-      <p class="hero-home__lead">Снимите спальное место, комнату, часть дома или всю территорию — для отдыха с семьёй, размещения бригады и мероприятий.</p>
-      <div class="hero-home__price">
-        <span class="amount">от 1 500 ₽</span>
-        <span class="per">за человека в сутки</span>
-      </div>
-      <div class="hero-home__cta">
-        <a href="#zayavka" class="btn btn-orange">Узнать свободные даты</a>
-        <a href="#" data-contact="whatsapp-href" data-whatsapp-text="Здравствуйте! Хочу узнать про свободные даты в гостевом доме «Сатис»." target="_blank" rel="noopener" class="btn btn-green">Написать в WhatsApp</a>
-        <a data-contact="phone-href" class="btn btn-ghost">Позвонить</a>
-      </div>
-      <ul class="hero-home__meta">
-        <li>заезд после 14:00</li>
-        <li>выезд до 12:00</li>
-        <li>от 1 суток</li>
-        <li>без предоплаты</li>
+      <p class="hero-home__eyebrow accent anim" style="--d:1">здесь по-домашнему</p>
+      <h1 class="anim" style="--d:2">Три дома, 36 мест и своя баня</h1>
+      <p class="hero-home__lead anim" style="--d:3">Снимите спальное место, комнату, часть дома или всю территорию — для отдыха с семьёй, размещения бригады и мероприятий.</p>
+
+      <form class="hero-book anim" style="--d:4" data-hero-book>
+        <div class="hero-book__field">
+          <label for="hero-dates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /></svg> Даты</label>
+          <input type="text" id="hero-dates" name="dates" placeholder="12–15 сентября" autocomplete="off">
+        </div>
+        <div class="hero-book__field">
+          <label for="hero-guests"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg> Гостей</label>
+          <input type="number" id="hero-guests" name="guests" min="1" placeholder="например, 6">
+        </div>
+        <button type="submit" class="btn btn-primary">Проверить даты</button>
+        <p class="hero-book__note">от 1 500 ₽ за человека в сутки · без предоплаты</p>
+      </form>
+
+      <ul class="hero-home__meta anim" style="--d:5">
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>заезд после 14:00</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>выезд до 12:00</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>от 1 суток</li>
+        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>без предоплаты</li>
       </ul>
     </div>
+    <a class="hero-scroll" href="#doma" aria-label="К выбору дома">
+      <span class="hero-scroll__mouse"><span></span></span>
+      <span class="hero-scroll__text">листайте</span>
+    </a>
   </section>
 
   <div class="container">
     <div class="trust-bar">
       <div class="trust-bar__item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v6c0 4.5-3.4 7.3-8 8.5C7.4 20.3 4 17.5 4 13V7z"/><path d="M9 12l2 2 4-4"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg>
         <div><div class="t">Договор на месте</div><div class="s">без сюрпризов по оплате</div></div>
       </div>
       <div class="trust-bar__item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 11h20"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></svg>
         <div><div class="t">Оплата от организации</div><div class="s">наличные, перевод, счёт</div></div>
       </div>
       <div class="trust-bar__item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M4 20h16"/><path d="M10 20v-5h4v5"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
         <div><div class="t">Закрытая территория</div><div class="s">ворота, камеры, парковка</div></div>
       </div>
       <div class="trust-bar__item">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>
         <div><div class="t">Отвечаем в тот же день</div><div class="s">звонки с 9:00 до 22:00</div></div>
       </div>
     </div>
@@ -139,69 +148,81 @@
       <div class="stay-grid reveal">
         <article class="stay-card">
           <div class="stay-card__media" style="background:#64799d">
-            <img src="assets/img/foto/dom-1/dom-1-fasad-1-800.webp"
-                 srcset="assets/img/foto/dom-1/dom-1-fasad-1-400.webp 400w, assets/img/foto/dom-1/dom-1-fasad-1-800.webp 800w"
-                 sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px"
-                 width="4284" height="3199" alt="Дом №1 — вид с улицы" loading="lazy" decoding="async">
+            <div class="slider" data-slider>
+              <div class="slider__track" tabindex="0" aria-label="Фотографии: Дом №1">
+                <img src="assets/img/foto/dom-1/dom-1-fasad-1-800.webp" srcset="assets/img/foto/dom-1/dom-1-fasad-1-400.webp 400w, assets/img/foto/dom-1/dom-1-fasad-1-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="4284" height="3199" alt="Дом №1 — вид с улицы, вывеска «Гостевой дом Сатис»" loading="lazy" decoding="async">
+                <img src="assets/img/foto/dom-1/dom-1-kuhnya-1-1-800.webp" srcset="assets/img/foto/dom-1/dom-1-kuhnya-1-1-400.webp 400w, assets/img/foto/dom-1/dom-1-kuhnya-1-1-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="5712" height="4284" alt="Дом №1 — гостиная-столовая с телевизором" loading="lazy" decoding="async">
+                <img src="assets/img/foto/dom-1/dom-1-kuhnya-2-3-800.webp" srcset="assets/img/foto/dom-1/dom-1-kuhnya-2-3-400.webp 400w, assets/img/foto/dom-1/dom-1-kuhnya-2-3-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="5712" height="4284" alt="Дом №1, второй этаж — общий зал со столом на большую компанию" loading="lazy" decoding="async">
+              </div>
+              <div class="slider__dots" data-slider-dots></div>
+            </div>
             <span class="stay-card__tag">12 мест</span>
           </div>
           <div class="stay-card__body">
             <h3>Дом №1</h3>
             <div class="chip-row">
-              <span class="chip">5 комнат</span>
-              <span class="chip">зал с баром</span>
-              <span class="chip">баня</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 21H2" /> <path d="M10 4a2 2 0 012.36-1.968l5.41.992A1.5 1.5 0 0119 4.5V21l-7.876.992A1 1 0 0110 21z" /> <path d="M10.268 3H7a2 2 0 00-2 2v16" /> <path d="M14 12h.01" /> <path d="M22 21h-3" /></svg>5 комнат</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /> <path d="M7 2v20" /> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>зал с баром</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg>баня</span>
             </div>
             <p class="stay-card__desc">Два этажа, банкетный зал и Wi-Fi. Баня с отдельным входом.</p>
             <div class="stay-card__foot">
               <div class="stay-card__price">от 1 500 ₽ <span>в сутки с человека</span></div>
-              <a href="dom-1.html" class="btn btn-outline btn-sm">Подробнее</a>
+              <a href="dom-1.html" class="btn btn-secondary btn-sm">Подробнее</a>
             </div>
           </div>
         </article>
 
         <article class="stay-card">
           <div class="stay-card__media" style="background:#a3abae">
-            <img src="assets/img/foto/dom-2/dom-2-fasad-2-800.webp"
-                 srcset="assets/img/foto/dom-2/dom-2-fasad-2-400.webp 400w, assets/img/foto/dom-2/dom-2-fasad-2-800.webp 800w"
-                 sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px"
-                 width="1220" height="843" alt="Дом №2 — вид с улицы" loading="lazy" decoding="async">
+            <div class="slider" data-slider>
+              <div class="slider__track" tabindex="0" aria-label="Фотографии: Дом №2">
+                <img src="assets/img/foto/dom-2/dom-2-fasad-2-800.webp" srcset="assets/img/foto/dom-2/dom-2-fasad-2-400.webp 400w, assets/img/foto/dom-2/dom-2-fasad-2-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="1220" height="843" alt="Дом №2 — вид с улицы" loading="lazy" decoding="async">
+                <img src="assets/img/foto/dom-2/dom-2-komnata-3-1-800.webp" srcset="assets/img/foto/dom-2/dom-2-komnata-3-1-400.webp 400w, assets/img/foto/dom-2/dom-2-komnata-3-1-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="1536" height="1152" alt="Дом №2, комната №3 — общий вид и четыре односпальные кровати" loading="lazy" decoding="async">
+                <img src="assets/img/foto/dom-2/dom-2-kuhnya-3-3-800.webp" srcset="assets/img/foto/dom-2/dom-2-kuhnya-3-3-400.webp 400w, assets/img/foto/dom-2/dom-2-kuhnya-3-3-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="1220" height="607" alt="Дом №2 — кухня со шкафами и техникой" loading="lazy" decoding="async">
+              </div>
+              <div class="slider__dots" data-slider-dots></div>
+            </div>
             <span class="stay-card__tag">24 места</span>
           </div>
           <div class="stay-card__body">
             <h3>Дом №2</h3>
             <div class="chip-row">
-              <span class="chip">8 комнат</span>
-              <span class="chip">4 кухни</span>
-              <span class="chip">4 душевые</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 21H2" /> <path d="M10 4a2 2 0 012.36-1.968l5.41.992A1.5 1.5 0 0119 4.5V21l-7.876.992A1 1 0 0110 21z" /> <path d="M10.268 3H7a2 2 0 00-2 2v16" /> <path d="M14 12h.01" /> <path d="M22 21h-3" /></svg>8 комнат</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /> <path d="M7 2v20" /> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg>4 кухни</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" /> <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" /></svg>4 душевые</span>
             </div>
             <p class="stay-card__desc">Делится на изолированные части: у каждой своя кухня и санузел.</p>
             <div class="stay-card__foot">
               <div class="stay-card__price">от 1 500 ₽ <span>в сутки с человека</span></div>
-              <a href="dom-2.html" class="btn btn-outline btn-sm">Подробнее</a>
+              <a href="dom-2.html" class="btn btn-secondary btn-sm">Подробнее</a>
             </div>
           </div>
         </article>
 
         <article class="stay-card">
           <div class="stay-card__media" style="background:#888d7f">
-            <img src="assets/img/foto/dom-3/dom-3-fasad-800.webp"
-                 srcset="assets/img/foto/dom-3/dom-3-fasad-400.webp 400w, assets/img/foto/dom-3/dom-3-fasad-800.webp 800w, assets/img/foto/dom-3/dom-3-fasad-1600.webp 1600w"
-                 sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px"
-                 width="8192" height="6144" alt="Дом через дорогу — вид с улицы" loading="lazy" decoding="async">
+            <div class="slider" data-slider>
+              <div class="slider__track" tabindex="0" aria-label="Фотографии: Дом через дорогу">
+                <img src="assets/img/foto/dom-3/dom-3-fasad-800.webp" srcset="assets/img/foto/dom-3/dom-3-fasad-400.webp 400w, assets/img/foto/dom-3/dom-3-fasad-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="8192" height="6144" alt="Дом через дорогу — вид с улицы" loading="lazy" decoding="async">
+                <img src="assets/img/foto/dom-3/dom-3-komnata-1-3-800.webp" srcset="assets/img/foto/dom-3/dom-3-komnata-1-3-400.webp 400w, assets/img/foto/dom-3/dom-3-komnata-1-3-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="4000" height="3000" alt="Дом через дорогу — комната №1" loading="lazy" decoding="async">
+                <img src="assets/img/foto/dom-3/dom-3-komnata-3-1-800.webp" srcset="assets/img/foto/dom-3/dom-3-komnata-3-1-400.webp 400w, assets/img/foto/dom-3/dom-3-komnata-3-1-800.webp 800w" sizes="(max-width: 760px) 92vw, (max-width: 980px) 46vw, 365px" width="4000" height="3000" alt="Дом через дорогу — комната №3" loading="lazy" decoding="async">
+              </div>
+              <div class="slider__dots" data-slider-dots></div>
+            </div>
             <span class="stay-card__tag">помесячно</span>
           </div>
           <div class="stay-card__body">
             <h3>Дом через дорогу</h3>
             <div class="chip-row">
-              <span class="chip">3 комнаты</span>
-              <span class="chip">до 4 человек</span>
-              <span class="chip">кухня и душ</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 21H2" /> <path d="M10 4a2 2 0 012.36-1.968l5.41.992A1.5 1.5 0 0119 4.5V21l-7.876.992A1 1 0 0110 21z" /> <path d="M10.268 3H7a2 2 0 00-2 2v16" /> <path d="M14 12h.01" /> <path d="M22 21h-3" /></svg>3 комнаты</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg>до 4 человек</span>
+              <span class="chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7.29 6.75 7 5.3c-.29 1.45-1.14 2.84-2.29 3.76S3 11.1 3 12.25c0 2.22 1.8 4.05 4 4.05z" /> <path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97" /></svg>кухня и душ</span>
             </div>
             <p class="stay-card__desc">Отдельный дом со своей территорией через дорогу от больших домов. Сдаётся только на месяц и целиком.</p>
             <div class="stay-card__foot">
               <div class="stay-card__price">35 000 ₽ <span>в месяц за дом</span></div>
-              <a href="dom-cherez-dorogu.html" class="btn btn-outline btn-sm">Подробнее</a>
+              <a href="dom-cherez-dorogu.html" class="btn btn-secondary btn-sm">Подробнее</a>
             </div>
           </div>
         </article>
@@ -214,7 +235,7 @@
     <div class="photo-band__media" style="background:#715841">
       <img src="assets/img/foto/banya-1/banya-1-parnaya-1-1600.webp"
            srcset="assets/img/foto/banya-1/banya-1-parnaya-1-800.webp 800w, assets/img/foto/banya-1/banya-1-parnaya-1-1600.webp 1600w"
-           sizes="100vw" width="5446" height="4084"
+           sizes="100vw" width="5446" height="4084" data-parallax
            alt="Баня при Доме №1 — парная" loading="lazy" decoding="async">
     </div>
     <div class="photo-band__inner">
@@ -242,7 +263,7 @@
     <div class="photo-band__media" style="background:#957664">
       <img src="assets/img/foto/dom-2/dom-2-komnata-3-1-1600.webp"
            srcset="assets/img/foto/dom-2/dom-2-komnata-3-1-800.webp 800w, assets/img/foto/dom-2/dom-2-komnata-3-1-1600.webp 1600w"
-           sizes="100vw" width="1536" height="1152"
+           sizes="100vw" width="1536" height="1152" data-parallax
            alt="Дом №2, комната №3 — общий вид и четыре односпальные кровати" loading="lazy" decoding="async">
     </div>
     <div class="photo-band__inner">
@@ -271,13 +292,37 @@
         <h2>Всё для жизни, а не на пару часов</h2>
         <p>Одна территория закрывает разные задачи — от семейного отдыха до размещения бригады на несколько месяцев.</p>
       </div>
-      <div class="feature-grid reveal">
-        <div class="feature-card"><h4>Много места</h4><p>36 спальных мест в двух больших домах — редкость для посёлка.</p></div>
-        <div class="feature-card"><h4>Гибкое размещение</h4><p>Место, комната, крыло, дом целиком или вся территория.</p></div>
-        <div class="feature-card"><h4>Кухни и техника</h4><p>Кухни с посудой, бельё, полотенца, пять стиральных машин, телевизор в каждой комнате и Wi-Fi.</p></div>
-        <div class="feature-card"><h4>Баня и отдых</h4><p>Две бани, мангальная зона, беседка, место для костра.</p></div>
-        <div class="feature-card"><h4>По-домашнему</h4><p>Гости чаще всего отмечают, что здесь спокойно и «как дома».</p></div>
-        <div class="feature-card"><h4>Удобная оплата</h4><p>Наличные, перевод, карта, расчётный счёт для организаций.</p></div>
+      <div class="bento reveal">
+        <article class="bento__item">
+          <span class="bento__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20v-8a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v8" /> <path d="M4 10V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v4" /> <path d="M12 4v6" /> <path d="M2 18h20" /></svg></span>
+          <h4>Много места</h4>
+          <p>36 спальных мест в двух больших домах — редкость для посёлка.</p>
+        </article>
+        <article class="bento__item">
+          <span class="bento__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 21H2" /> <path d="M10 4a2 2 0 012.36-1.968l5.41.992A1.5 1.5 0 0119 4.5V21l-7.876.992A1 1 0 0110 21z" /> <path d="M10.268 3H7a2 2 0 00-2 2v16" /> <path d="M14 12h.01" /> <path d="M22 21h-3" /></svg></span>
+          <h4>Гибкое размещение</h4>
+          <p>Место, комната, крыло, дом целиком или вся территория.</p>
+        </article>
+        <article class="bento__item">
+          <span class="bento__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" /> <path d="M7 2v20" /> <path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7" /></svg></span>
+          <h4>Кухни и техника</h4>
+          <p>Кухни с посудой, бельё, полотенца, пять стиральных машин, телевизор в каждой комнате и Wi-Fi.</p>
+        </article>
+        <article class="bento__item">
+          <span class="bento__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4" /></svg></span>
+          <h4>Баня и отдых</h4>
+          <p>Две бани, мангальная зона, беседка, место для костра.</p>
+        </article>
+        <article class="bento__item">
+          <span class="bento__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg></span>
+          <h4>По-домашнему</h4>
+          <p>Гости чаще всего отмечают, что здесь спокойно и «как дома».</p>
+        </article>
+        <article class="bento__item">
+          <span class="bento__icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></svg></span>
+          <h4>Удобная оплата</h4>
+          <p>Наличные, перевод, карта, расчётный счёт для организаций.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -286,8 +331,11 @@
   <section class="section section--tight">
     <div class="container">
       <div class="honest-block reveal">
+        <div class="honest-block__icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" /> <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /> <path d="m21 3 1 11h-2" /> <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /> <path d="M3 4h8" /></svg></div>
+        <div>
         <h2>Честно о том, какие это дома</h2>
         <p>Это не отель и не новые коттеджи. Дома живые и домашние: просторные, тёплые, со всем необходимым для проживания — но мебель разного возраста и не в едином стиле, где-то видны следы эксплуатации. Мы постепенно всё обновляем. Зато здесь по-настоящему удобно жить, готовить, отдыхать и размещаться большой компанией — и цена честная.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -335,7 +383,7 @@
               <input type="checkbox" name="consent" required>
               <span>Согласен на обработку указанных данных для ответа на заявку — <a href="politika.html">как мы их обрабатываем</a></span>
             </label>
-            <button type="submit" class="btn btn-orange btn-block">Узнать цену и занятость</button>
+            <button type="submit" class="btn btn-primary btn-block">Узнать цену и занятость</button>
           </form>
           <div class="form-success"></div>
           <p class="form-note">Заявка уйдёт в WhatsApp — останется нажать «отправить».</p>
@@ -383,6 +431,10 @@
     <span>Заезд после 14:00 • выезд до 12:00 • от 1 500 ₽ с человека</span>
   </div>
 </footer>
+
+<a class="fab" href="#" data-contact="whatsapp-href"
+   data-whatsapp-text="Здравствуйте! Пишу с сайта гостевого дома «Сатис»."
+   target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg></a>
 
 <div class="mobile-cta">
   <a data-contact="phone-href" class="btn btn-outline btn-sm">Позвонить</a>
