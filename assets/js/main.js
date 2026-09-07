@@ -22,34 +22,6 @@
       <div class="ph"><img src="assets/img/foto/dom-2/dom-2-komnata-5-4.webp" width="320" height="427" alt="Дом №2 — комната №5, стол у окна" loading="lazy" decoding="async"></div>`;
   }
 
-  /* Главная: шапка лежит поверх первого экрана и белеет, когда он уехал вверх. */
-  function initFloatingHeader() {
-    if (!document.body.classList.contains('home')) return;
-    const header = document.querySelector('.site-header');
-    const hero = document.querySelector('.hero-home');
-    if (!header || !hero) return;
-
-    document.body.classList.add('floating-header');
-
-    let headerH = 0;
-    let switchAt = 0;
-
-    function measure() {
-      headerH = header.offsetHeight;
-      switchAt = Math.max(hero.offsetHeight - headerH, 0);
-      document.documentElement.style.setProperty('--header-h', headerH + 'px');
-    }
-
-    function update() {
-      header.classList.toggle('is-solid', window.scrollY > switchAt);
-    }
-
-    measure();
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', () => { measure(); update(); });
-  }
-
   /* Плавное появление блоков. Класс на body ставится только здесь,
      поэтому без JS страница видна целиком и ничего не прячется. */
   function initReveal() {
@@ -133,34 +105,59 @@
     update();
   }
 
-  /* Быстрая форма в первом экране переносит даты и число гостей
-     в основную заявку и подводит к ней — без второй точки отправки. */
-  function initHeroBooking() {
-    const form = document.querySelector('[data-hero-book]');
-    if (!form) return;
-    form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      const target = document.querySelector('form[data-booking-form]');
-      const dates = form.querySelector('[name="dates"]');
-      const guests = form.querySelector('[name="guests"]');
-      if (target) {
-        const targetDates = target.querySelector('[name="dates"]');
-        const targetGuests = target.querySelector('[name="guests"]');
-        if (targetDates && dates.value) targetDates.value = dates.value;
-        if (targetGuests && guests.value) targetGuests.value = guests.value;
+  /* Переключатель «Отдых с семьёй / Размещение бригад» в первом экране.
+     Это не декорация: у каждого сегмента своя цель у кнопки (форма на
+     этой же странице для отдыха, отдельная страница с условиями для
+     бригад) и свой текст сообщения в WhatsApp. */
+  const HERO_SEGMENTS = {
+    stay: {
+      href: '#zayavka',
+      label: 'Узнать свободные даты',
+      wa: 'Здравствуйте! Хочу узнать про свободные даты для отдыха с семьёй в гостевом доме «Сатис».',
+    },
+    brigade: {
+      href: 'komandirovochnym.html',
+      label: 'Условия для бригад',
+      wa: 'Здравствуйте! Интересует размещение бригады в гостевом доме «Сатис».',
+    },
+  };
+
+  function initHeroSegment() {
+    const group = document.querySelector('[data-hero-segment]');
+    const cta = document.querySelector('[data-hero-cta]');
+    if (!group || !cta) return;
+    const label = cta.querySelector('[data-hero-cta-label]');
+    const waLink = document.querySelector('[data-hero-wa]');
+
+    function apply(segment) {
+      const cfg = HERO_SEGMENTS[segment] || HERO_SEGMENTS.stay;
+      group.querySelectorAll('.hero-segment__btn').forEach((btn) => {
+        const active = btn.dataset.segment === segment;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-pressed', String(active));
+      });
+      cta.href = cfg.href;
+      if (label) label.textContent = cfg.label;
+      if (waLink) {
+        waLink.dataset.whatsappText = cfg.wa;
+        // whatsappLink() определена в main-original.js: этот файл уже
+        // подключён к моменту DOMContentLoaded (см. document.write ниже).
+        if (typeof whatsappLink === 'function') waLink.href = whatsappLink(cfg.wa);
       }
-      const section = document.getElementById('zayavka');
-      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      const phone = document.getElementById('h-phone');
-      if (phone) setTimeout(() => phone.focus({ preventScroll: true }), 600);
+    }
+
+    group.querySelectorAll('.hero-segment__btn').forEach((btn) => {
+      btn.addEventListener('click', () => apply(btn.dataset.segment));
     });
+    // Без этого вызова текст WhatsApp для сегмента «Отдых» подставлялся бы
+    // только после клика — до него ссылка использовала общий текст-заглушку.
+    apply('stay');
   }
 
   document.addEventListener('DOMContentLoaded', patchRoom5, { once: true });
   document.addEventListener('DOMContentLoaded', initSliders, { once: true });
   document.addEventListener('DOMContentLoaded', initParallax, { once: true });
-  document.addEventListener('DOMContentLoaded', initHeroBooking, { once: true });
-  document.addEventListener('DOMContentLoaded', initFloatingHeader, { once: true });
+  document.addEventListener('DOMContentLoaded', initHeroSegment, { once: true });
   document.addEventListener('DOMContentLoaded', initReveal, { once: true });
   document.write('<script src="assets/js/main-original.js"></' + 'script>');
 })();
