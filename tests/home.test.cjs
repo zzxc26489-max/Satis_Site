@@ -20,7 +20,7 @@ test('homepage local links and image candidates resolve, without AI imagery', ()
   }
   for (const ref of refs) {
     if (/^(?:[a-z]+:|#)/i.test(ref)) continue;
-    assert.ok(fs.existsSync(path.join(root, ref.split('#')[0])), `Missing asset: ${ref}`);
+    assert.ok(fs.existsSync(path.join(root, ref.split(/[?#]/)[0])), `Missing asset: ${ref}`);
   }
   for (const m of html.matchAll(/<img[^>]+src="([^"]+)"/g)) {
     assert.ok(m[1].startsWith('assets/img/foto/'), `Not a source photograph: ${m[1]}`);
