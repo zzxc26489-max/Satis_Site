@@ -14,15 +14,17 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>🏡</text></svg>">
 <link rel="preload" href="assets/fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/caveat-accent.woff2" as="font" type="font/woff2" crossorigin>
+
 <link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="preload" href="assets/fonts/oswald-cyrillic-latin.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/home.css">
 </head>
 <body class="home">
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="logo">Гостевой дом <span>«Сатис»</span></a>
+    <a href="index.html" class="logo home-logo" aria-label="Сатис — главная"><span>Сатис</span><small>ГОСТЕВЫЕ ДОМА</small></a>
     <nav class="main-nav">
       <a href="doma.html">Дома</a>
       <a href="tseny.html">Цены</a>
@@ -37,99 +39,69 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         <span data-contact="phone-text">+7 903 602-34-08</span>
       </a>
-      <a href="kontakty.html#bron" class="btn btn-primary btn-sm">Забронировать</a>
-      <button class="nav-toggle" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+      <a href="#zayavka" class="btn btn-secondary btn-sm">Оставить заявку</a>
+      <button class="nav-toggle" aria-label="Открыть меню" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <main>
 
-  <!-- ---------- Первый экран ---------- -->
-  <section class="hero-home">
-    <div class="hero-home__media">
-      <picture>
-        <!-- На телефоне экран вертикальный: горизонтальный кадр пришлось бы
-             обрезать больше чем наполовину, поэтому отдаём вертикальный. -->
-        <source media="(max-width: 760px)"
-                srcset="assets/img/foto/territoriya/territoriya-obshchiy-vid-4-400.webp 400w, assets/img/foto/territoriya/territoriya-obshchiy-vid-4-800.webp 800w, assets/img/foto/territoriya/territoriya-obshchiy-vid-4-1600.webp 1600w"
-                sizes="100vw" width="4284" height="5712">
+  <!-- Первый экран: настоящий двор и запрос, а не онлайн-бронирование. -->
+  <section class="welcome" aria-labelledby="welcome-title">
+    <div class="container welcome__layout">
+      <figure class="welcome__photo">
         <img src="assets/img/foto/hero-1200.webp"
              srcset="assets/img/foto/hero-800.webp 800w, assets/img/foto/hero-1200.webp 1200w, assets/img/foto/hero-1600.webp 1600w"
-             sizes="100vw" width="5712" height="4284"
-             alt="Двор гостевого дома «Сатис»: лежаки в тени деревьев"
+             sizes="(max-width: 760px) 100vw, 55vw" width="5712" height="4284"
+             alt="Настоящий двор «Сатиса»: лежаки и деревья на территории гостевых домов"
              fetchpriority="high" decoding="async">
-      </picture>
-    </div>
-    <div class="container hero-home__inner">
-      <span class="hero-home__badge anim" style="--d:0">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /> <circle cx="12" cy="10" r="3" /></svg>
-        рп Сатис, 20 км от Первомайска
-      </span>
-      <p class="hero-home__eyebrow accent anim" style="--d:1">здесь по-домашнему</p>
-      <h1 class="anim" style="--d:2">Три дома, 36 мест и своя баня</h1>
-      <p class="hero-home__lead anim" style="--d:3">Снимите спальное место, комнату, часть дома или всю территорию — для отдыха с семьёй, размещения бригады и мероприятий.</p>
+        <figcaption>Наш двор в рп Сатис · Нижегородская область</figcaption>
+      </figure>
+      <div class="welcome__content">
+        <p class="welcome__eyebrow">Гостевые дома в рп Сатис</p>
+        <h1 id="welcome-title">Три дома<br>для <span>отдыха</span><br>и работы</h1>
+        <p class="welcome__facts">36 мест посуточно в двух больших домах.<br>Третий дом — целиком, на месяц.</p>
 
-      <form class="hero-book anim" style="--d:4" data-hero-book>
-        <div class="hero-book__field">
-          <label for="hero-dates"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v3" /> <path d="M16 2v3" /> <rect x="3" y="3" width="18" height="18" rx="2" /> <path d="M3 9h18" /></svg> Даты</label>
-          <input type="text" id="hero-dates" name="dates" placeholder="12–15 сентября" autocomplete="off">
-        </div>
-        <div class="hero-book__field">
-          <label for="hero-guests"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" /> <path d="M16 3.128a4 4 0 0 1 0 7.744" /> <path d="M22 21v-2a4 4 0 0 0-3-3.87" /> <circle cx="9" cy="7" r="4" /></svg> Гостей</label>
-          <input type="number" id="hero-guests" name="guests" min="1" placeholder="например, 6">
-        </div>
-        <button type="submit" class="btn btn-primary">Проверить даты</button>
-        <p class="hero-book__note">от 1 500 ₽ за человека в сутки · без предоплаты</p>
-      </form>
+        <fieldset class="audience" data-audience-switch hidden>
+          <legend class="sr-only">Цель проживания</legend>
+          <label class="audience__option">
+            <input type="radio" name="stay-purpose" value="family" checked>
+            <span>Отдых с семьёй</span>
+          </label>
+          <label class="audience__option">
+            <input type="radio" name="stay-purpose" value="crew">
+            <span>Размещение бригад</span>
+          </label>
+        </fieldset>
 
-      <ul class="hero-home__meta anim" style="--d:5">
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>заезд после 14:00</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>выезд до 12:00</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>от 1 суток</li>
-        <li><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5" /></svg>без предоплаты</li>
-      </ul>
+        <div class="welcome__purpose" aria-live="polite" aria-atomic="true">
+          <p data-audience-description>Баня, мангал, детская зона и зелёный двор — для нескольких дней вместе.</p>
+          <a href="territoriya.html" data-audience-details>Подробнее об отдыхе и территории</a>
+        </div>
+        <a href="#zayavka" class="btn btn-primary welcome__cta" data-audience-cta
+           data-contact="whatsapp-href"
+           data-whatsapp-text="Здравствуйте! Хочу отдых с семьёй в «Сатисе». Подскажите свободные даты и стоимость."
+           target="_blank" rel="noopener">Узнать свободные даты</a>
+        <p class="welcome__note">Откроется WhatsApp. Отправьте сообщение —<br>мы уточним наличие и стоимость.</p>
+        <a class="welcome__phone" href="tel:+79036023408" data-contact="phone-href">Или позвоните Ирине Николаевне</a>
+      </div>
     </div>
-    <a class="hero-scroll" href="#doma" aria-label="К выбору дома">
-      <span class="hero-scroll__mouse"><span></span></span>
-      <span class="hero-scroll__text">листайте</span>
-    </a>
   </section>
-
-  <div class="container">
-    <div class="trust-bar">
-      <div class="trust-bar__item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg>
-        <div><div class="t">Договор на месте</div><div class="s">без сюрпризов по оплате</div></div>
-      </div>
-      <div class="trust-bar__item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></svg>
-        <div><div class="t">Оплата от организации</div><div class="s">наличные, перевод, счёт</div></div>
-      </div>
-      <div class="trust-bar__item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8" /> <path d="M3 10a2 2 0 0 1 .709-1.528l7-6a2 2 0 0 1 2.582 0l7 6A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
-        <div><div class="t">Закрытая территория</div><div class="s">ворота, камеры, парковка</div></div>
-      </div>
-      <div class="trust-bar__item">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>
-        <div><div class="t">Отвечаем в тот же день</div><div class="s">звонки с 9:00 до 22:00</div></div>
-      </div>
-    </div>
-  </div>
 
   <!-- ---------- Форматы проживания ---------- -->
   <section class="section" id="doma">
     <div class="container">
       <div class="section-lead reveal">
         <span class="accent">выбирайте, как удобно</span>
-        <h2>Место, комната, крыло или вся территория</h2>
+        <h2>Выберите формат проживания</h2>
         <p>Можно снять спальное место, комнату, часть дома, дом целиком, баню либо всю территорию под мероприятие. Если комната занята — мы никого не подселяем, а заселяем в свободную.</p>
       </div>
 
-      <div class="numbers reveal">
+      <div class="numbers reveal" aria-label="Варианты и вместимость">
         <div class="numbers__item">
           <div class="numbers__num">3</div>
-          <div class="numbers__label">дома на одной территории</div>
+          <div class="numbers__label">дома: один через дорогу</div>
         </div>
         <div class="numbers__item">
           <div class="numbers__num">36</div>
@@ -230,8 +202,25 @@
     </div>
   </section>
 
+  <div class="container">
+    <div class="trust-bar" aria-label="Условия заявки и оплаты">
+      <div class="trust-bar__item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" /> <path d="m9 12 2 2 4-4" /></svg>
+        <div><div class="t">Договор на месте</div><div class="s">без сюрпризов по оплате</div></div>
+      </div>
+      <div class="trust-bar__item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="12" x="2" y="6" rx="2" /> <circle cx="12" cy="12" r="2" /> <path d="M6 12h.01M18 12h.01" /></svg>
+        <div><div class="t">Оплата от организации</div><div class="s">наличные, перевод, счёт</div></div>
+      </div>
+      <div class="trust-bar__item">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" /></svg>
+        <div><div class="t">Отвечаем в тот же день</div><div class="s">звонки с 9:00 до 22:00</div></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ---------- Баня и территория ---------- -->
-  <section class="photo-band">
+  <section class="photo-band" id="family-stay">
     <div class="photo-band__media" style="background:#715841">
       <img src="assets/img/foto/banya-1/banya-1-parnaya-1-1600.webp"
            srcset="assets/img/foto/banya-1/banya-1-parnaya-1-800.webp 800w, assets/img/foto/banya-1/banya-1-parnaya-1-1600.webp 1600w"
@@ -361,8 +350,15 @@
 
       <div>
         <div class="form-band__card">
-          <h3>Заявка на бронирование</h3>
+          <h3>Запросить свободные даты</h3>
           <form data-booking-form data-house-name="Гостевой дом «Сатис» (заявка с главной)">
+            <div class="field">
+              <label for="h-purpose">Цель проживания</label>
+              <select id="h-purpose" name="purpose" data-audience-form>
+                <option value="family">Отдых с семьёй</option>
+                <option value="crew">Размещение бригады</option>
+              </select>
+            </div>
             <div class="field">
               <label for="h-dates">Даты заезда и выезда</label>
               <input type="text" id="h-dates" name="dates" placeholder="напр. 12–15 сентября">
@@ -432,15 +428,16 @@
   </div>
 </footer>
 
-<a class="fab" href="#" data-contact="whatsapp-href"
+<a data-audience-cta class="fab" href="#" data-contact="whatsapp-href"
    data-whatsapp-text="Здравствуйте! Пишу с сайта гостевого дома «Сатис»."
    target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719" /></svg></a>
 
 <div class="mobile-cta">
   <a data-contact="phone-href" class="btn btn-outline btn-sm">Позвонить</a>
-  <a href="#" data-contact="whatsapp-href" target="_blank" rel="noopener" class="btn btn-green btn-sm">WhatsApp</a>
+  <a href="#" data-contact="whatsapp-href" target="_blank" rel="noopener" class="btn btn-green btn-sm" data-audience-cta>WhatsApp</a>
 </div>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/home.js"></script>
 </body>
 </html>
