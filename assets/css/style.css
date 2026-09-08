@@ -2948,15 +2948,24 @@ textarea:focus-visible {
     text-shadow: 0 2px 14px rgba(0, 0, 0, .54);
   }
   .home .hero-home__overlay h1 {
-    max-width: 338px;
+    width: 100%;
+    max-width: none;
     margin: 0 0 8px;
     color: #fff;
     font-family: Georgia, "Times New Roman", serif;
-    font-size: clamp(2.48rem, 11.5vw, 3.65rem);
+    font-size: clamp(2.24rem, 10.3vw, 3.05rem);
     font-weight: 500;
     line-height: .88;
     letter-spacing: -.052em;
     text-shadow: 0 2px 14px rgba(0, 0, 0, .5);
+  }
+  .home .hero-home__overlay .hero-home__accent-line {
+    display: block;
+    margin: 0;
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: nowrap;
   }
   .home .hero-home__tagline {
     display: block;
