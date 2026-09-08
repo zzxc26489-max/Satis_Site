@@ -2580,3 +2580,62 @@ textarea:focus-visible {
   .home .numbers__item { padding: 14px 13px; }
   .home .numbers__label { font-size: .73rem; }
 }
+
+
+/* =========================================================
+   Общий мобильный ритм — без пустых полос и плиток-«заглушек».
+   ========================================================= */
+@media (max-width: 760px) {
+  /* Убираем искусственную белую полосу перед подвалом на всех страницах. */
+  .site-footer { margin-top: 0; }
+  .footer-grid { padding-top: 40px; padding-bottom: 24px; }
+  .footer-bottom { padding-bottom: 22px; }
+
+  /* Единый, более плотный вертикальный ритм для обычных страниц. */
+  .section { padding: 52px 0; }
+  .section--tight { padding: 40px 0; }
+  .section-head,
+  .section-lead { margin-bottom: 28px; }
+
+  /* На главной четыре числа — один цельный блок вместо четырёх крупных карточек. */
+  .home .numbers {
+    gap: 0;
+    overflow: hidden;
+    border: 1px solid #e2e3da;
+    border-radius: 18px;
+    background: #fffef9;
+  }
+  .home .numbers__item {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    align-items: center;
+    min-height: 78px;
+    padding: 12px 11px;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+  }
+  .home .numbers__item:nth-child(odd) { border-right: 1px solid #e2e3da; }
+  .home .numbers__item:nth-child(-n + 2) { border-bottom: 1px solid #e2e3da; }
+  .home .numbers__num {
+    align-self: center;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .home .numbers__label {
+    align-self: center;
+    margin: 0;
+    font-size: .75rem;
+    line-height: 1.18;
+  }
+}
+
+@media (max-width: 370px) {
+  .home .numbers__item {
+    grid-template-columns: 39px minmax(0, 1fr);
+    min-height: 72px;
+    padding: 10px 8px;
+  }
+  .home .numbers__num { font-size: 1.76rem; }
+  .home .numbers__label { font-size: .69rem; }
+}
