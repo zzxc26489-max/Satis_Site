@@ -131,6 +131,8 @@
 
     function apply(segment) {
       const cfg = HERO_SEGMENTS[segment] || HERO_SEGMENTS.stay;
+      group.classList.toggle('is-brigade', segment === 'brigade');
+      group.classList.toggle('is-stay', segment !== 'brigade');
       group.querySelectorAll('.hero-segment__btn').forEach((btn) => {
         const active = btn.dataset.segment === segment;
         btn.classList.toggle('is-active', active);
