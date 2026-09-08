@@ -2127,3 +2127,286 @@ textarea:focus-visible {
   .slider__track { scroll-behavior: auto; }
   .bento__item:hover .bento__icon { transform: none; }
 }
+
+
+/* =========================================================
+   Главная — мобильная композиция «Сатис»
+   Реальные фотографии, ясный выбор формата и единый ритм.
+   ========================================================= */
+@font-face {
+  font-family: "Satis Condensed";
+  src: url("../fonts/oswald-cyrillic-latin.woff") format("woff");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+.home-logo__mobile,
+.home-mark { display: none; }
+
+@media (max-width: 760px) {
+  body.home { background: #f8f8f0; padding-bottom: 0; }
+  .home .site-header {
+    position: relative;
+    background: #f8f8f0;
+    border-bottom: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .home .site-header .container {
+    min-height: 136px;
+    padding: 18px 28px 17px;
+    gap: 12px;
+  }
+  .home .home-logo__desktop { display: none; }
+  .home .home-logo__mobile {
+    display: flex;
+    flex-direction: column;
+    color: #263e2a;
+    font-family: "Satis Condensed", Impact, sans-serif;
+    font-size: clamp(3.45rem, 16.2vw, 4.55rem);
+    font-weight: 600;
+    line-height: .73;
+    letter-spacing: -.055em;
+  }
+  .home .home-logo__mobile small {
+    display: block;
+    margin-top: 12px;
+    color: #263e2a;
+    font-family: var(--font-body);
+    font-size: .69rem;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+  }
+  .home .home-mark {
+    display: flex;
+    align-items: flex-start;
+    gap: 7px;
+    margin-left: auto;
+    color: #526744;
+    font-size: .79rem;
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: -.025em;
+  }
+  .home .home-mark svg { width: 38px; height: 39px; flex: 0 0 auto; }
+  .home .header-phone,
+  .home .header-actions .btn { display: none; }
+  .home .header-actions { margin-left: 0; gap: 0; }
+  .home .nav-toggle { display: block; padding: 4px 0 4px 8px; }
+  .home .nav-toggle span {
+    width: 32px;
+    height: 3px;
+    margin: 6px 0;
+    border-radius: 999px;
+    background: #263e2a;
+  }
+
+  .home .hero-home { padding: 0 0 8px; }
+  .home .hero-home__layout {
+    display: block;
+    margin: 0;
+    padding: 0 16px;
+  }
+  .home .hero-home__media {
+    margin: 0;
+    aspect-ratio: 16 / 10;
+    border-radius: 21px;
+    box-shadow: none;
+    background: #e9e6da;
+  }
+  .home .hero-home__media img {
+    object-position: 50% 52%;
+    animation: none;
+    transform: none;
+  }
+  .home .hero-home__badge { display: none; }
+  .home .hero-home__content {
+    padding: 24px 5px 0;
+    text-align: center;
+  }
+  .home .hero-home h1 {
+    max-width: 650px;
+    margin: 0 auto 9px;
+    color: #263e2a;
+    font-family: "Satis Condensed", Impact, sans-serif;
+    font-size: clamp(3.05rem, 13.4vw, 4.7rem);
+    font-weight: 600;
+    line-height: .88;
+    letter-spacing: -.035em;
+    text-transform: uppercase;
+  }
+  .home .hero-home__accent-line {
+    margin-top: 4px;
+    color: #e85d12;
+  }
+  .home .hero-home__lead {
+    margin: 0 0 23px;
+    color: #263e2a;
+    font-size: 1rem;
+    font-weight: 750;
+    letter-spacing: -.025em;
+  }
+
+  .home .hero-segment {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    gap: 0;
+    padding: 0;
+    margin: 0 0 16px;
+    overflow: hidden;
+    border: 1px solid #e1e5d8;
+    border-radius: 18px;
+    background: #fbfbf6;
+  }
+  .home .hero-segment__btn {
+    min-height: 84px;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 7px;
+    border-radius: 16px;
+    color: #2c472f;
+    font-family: "Satis Condensed", var(--font-display);
+    font-size: clamp(1.12rem, 5vw, 1.42rem);
+    font-weight: 600;
+    line-height: .94;
+    text-align: left;
+    white-space: normal;
+  }
+  .home .hero-segment__btn svg {
+    width: 26px;
+    height: 26px;
+    stroke-width: 2.15;
+  }
+  .home .hero-segment__btn.is-active {
+    background: #28472e;
+    color: #fff;
+    box-shadow: none;
+  }
+  .home .hero-segment__btn:hover { background: transparent; }
+  .home .hero-segment__btn.is-active:hover { background: #28472e; }
+
+  .home .hero-home .btn-lg {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    min-height: 61px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    background: #f36c14;
+    box-shadow: none;
+    color: #fff;
+    font-family: "Satis Condensed", var(--font-display);
+    font-size: 1.56rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .home .hero-home .btn-lg:hover { background: #de5e0d; }
+  .home .hero-home .btn-lg svg { width: 25px; height: 25px; margin-left: 3px; }
+  .home .hero-home__note {
+    margin: 11px 0 0;
+    color: #6f746d;
+    font-size: .88rem;
+    line-height: 1.35;
+  }
+  .home .hero-home__note a {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+  }
+
+  .home .trust-facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 3px;
+    margin: 30px 0 27px;
+    padding: 0 4px;
+  }
+  .home .trust-facts__item {
+    padding: 0 2px;
+    background: transparent;
+    border-radius: 0;
+  }
+  .home .trust-facts__item:hover { transform: none; box-shadow: none; }
+  .home .trust-facts__icon {
+    width: 51px;
+    height: 51px;
+    margin-bottom: 8px;
+    border-radius: 15px;
+    background: #eef0e8;
+    color: #28472e;
+  }
+  .home .trust-facts__icon svg { width: 27px; height: 27px; stroke-width: 1.8; }
+  .home .trust-facts__t {
+    color: #293e2d;
+    font-family: var(--font-body);
+    font-size: .74rem;
+    font-weight: 800;
+    line-height: 1.13;
+  }
+  .home .trust-facts__s {
+    color: #293e2d;
+    font-size: .67rem;
+    font-weight: 600;
+    line-height: 1.13;
+  }
+
+  .home .intro-teaser {
+    grid-template-columns: 1.15fr .85fr;
+    gap: 0;
+    margin: 0 0 40px;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid #ecece4;
+    border-radius: 21px;
+    background: #fffef9;
+  }
+  .home .intro-teaser__media {
+    border-radius: 0;
+    aspect-ratio: auto;
+    min-height: 224px;
+  }
+  .home .intro-teaser__media img { object-position: 50% 50%; }
+  .home .intro-teaser__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 18px 13px;
+    text-align: left;
+  }
+  .home .intro-teaser__body h3 {
+    margin: 0 0 8px;
+    color: #28472e;
+    font-family: "Satis Condensed", var(--font-display);
+    font-size: clamp(1.55rem, 7vw, 2.25rem);
+    font-weight: 600;
+    line-height: .94;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
+  }
+  .home .intro-teaser__body p {
+    margin: 0 0 10px;
+    color: #667068;
+    font-size: .72rem;
+    line-height: 1.26;
+  }
+  .home .intro-teaser__body .text-link {
+    color: #e15b12;
+    font-size: .75rem;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  .home .intro-teaser__body .text-link svg { width: 15px; height: 15px; }
+  .home .mobile-cta { display: none !important; }
+}
+
+@media (max-width: 370px) {
+  .home .site-header .container { padding-left: 20px; padding-right: 20px; }
+  .home .home-mark { font-size: .72rem; gap: 4px; }
+  .home .home-mark svg { width: 32px; }
+  .home .hero-home h1 { font-size: 2.85rem; }
+  .home .hero-segment__btn { font-size: 1.03rem; }
+  .home .trust-facts__t { font-size: .68rem; }
+  .home .trust-facts__s { font-size: .62rem; }
+}
