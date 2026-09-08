@@ -16,13 +16,16 @@
 <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/caveat-accent.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css?v=mobile-reference-1">
 </head>
 <body class="home">
 
 <header class="site-header">
   <div class="container">
-    <a href="index.html" class="logo">Гостевой дом <span>«Сатис»</span></a>
+    <a href="index.html" class="logo home-logo" aria-label="Гостевой дом «Сатис»">
+      <span class="home-logo__desktop">Гостевой дом <b>«Сатис»</b></span>
+      <span class="home-logo__mobile">Сатис<small>ГОСТЕВЫЕ ДОМА<br>В Р.П. САТИС</small></span>
+    </a>
     <nav class="main-nav">
       <a href="doma.html">Дома</a>
       <a href="tseny.html">Цены</a>
@@ -32,6 +35,10 @@
       <a href="pravila.html">Правила</a>
       <a href="kontakty.html">Контакты</a>
     </nav>
+    <div class="home-mark" aria-label="Уютно. По-настоящему.">
+      <svg viewBox="0 0 46 44" aria-hidden="true"><path d="M12 41V29H5l7-10H8l8-12 8 12h-4l7 10h-7v12M29 41V26h-5l6-8h-4l6-9 6 9h-4l6 8h-5v15" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>Уютно.<br>По-настоящему.</span>
+    </div>
     <div class="header-actions">
       <a data-contact="phone-href" class="header-phone" aria-label="Позвонить">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -50,11 +57,6 @@
     <div class="container hero-home__layout">
       <div class="hero-home__media anim" style="--d:0">
         <picture>
-          <!-- На телефоне экран вертикальный: горизонтальный кадр пришлось бы
-               обрезать больше чем наполовину, поэтому отдаём вертикальный. -->
-          <source media="(max-width: 760px)"
-                  srcset="assets/img/foto/territoriya/territoriya-obshchiy-vid-4-400.webp 400w, assets/img/foto/territoriya/territoriya-obshchiy-vid-4-800.webp 800w, assets/img/foto/territoriya/territoriya-obshchiy-vid-4-1600.webp 1600w"
-                  sizes="(max-width: 760px) 100vw, 560px" width="4284" height="5712">
           <img src="assets/img/foto/hero-1200.webp"
                srcset="assets/img/foto/hero-800.webp 800w, assets/img/foto/hero-1200.webp 1200w, assets/img/foto/hero-1600.webp 1600w"
                sizes="(max-width: 760px) 100vw, 560px" width="5712" height="4284"
