@@ -123,37 +123,37 @@
   };
 
   function initHeroSegment() {
-    const group = document.querySelector('[data-hero-segment]');
-    const cta = document.querySelector('[data-hero-cta]');
-    if (!group || !cta) return;
-    const label = cta.querySelector('[data-hero-cta-label]');
-    const waLink = document.querySelector('[data-hero-wa]');
+    document.querySelectorAll('[data-hero-segment]').forEach((group) => {
+      const scope = group.closest('.hero-home, .desktop-exact') || document;
+      const cta = scope.querySelector('[data-hero-cta]');
+      if (!cta) return;
+      const label = cta.querySelector('[data-hero-cta-label]');
+      const waLink = scope.querySelector('[data-hero-wa]');
 
-    function apply(segment) {
-      const cfg = HERO_SEGMENTS[segment] || HERO_SEGMENTS.stay;
-      group.classList.toggle('is-brigade', segment === 'brigade');
-      group.classList.toggle('is-stay', segment !== 'brigade');
-      group.querySelectorAll('.hero-segment__btn').forEach((btn) => {
-        const active = btn.dataset.segment === segment;
-        btn.classList.toggle('is-active', active);
-        btn.setAttribute('aria-pressed', String(active));
-      });
-      cta.href = cfg.href;
-      if (label) label.textContent = cfg.label;
-      if (waLink) {
-        waLink.dataset.whatsappText = cfg.wa;
-        // whatsappLink() определена в main-original.js: этот файл уже
-        // подключён к моменту DOMContentLoaded (см. document.write ниже).
-        if (typeof whatsappLink === 'function') waLink.href = whatsappLink(cfg.wa);
+      function apply(segment) {
+        const cfg = HERO_SEGMENTS[segment] || HERO_SEGMENTS.stay;
+        group.classList.toggle('is-brigade', segment === 'brigade');
+        group.classList.toggle('is-stay', segment !== 'brigade');
+        group.querySelectorAll('.hero-segment__btn').forEach((btn) => {
+          const active = btn.dataset.segment === segment;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
+        cta.href = segment === 'stay' && group.dataset.stayHref
+          ? group.dataset.stayHref
+          : cfg.href;
+        if (label) label.textContent = cfg.label;
+        if (waLink) {
+          waLink.dataset.whatsappText = cfg.wa;
+          if (typeof whatsappLink === 'function') waLink.href = whatsappLink(cfg.wa);
+        }
       }
-    }
 
-    group.querySelectorAll('.hero-segment__btn').forEach((btn) => {
-      btn.addEventListener('click', () => apply(btn.dataset.segment));
+      group.querySelectorAll('.hero-segment__btn').forEach((btn) => {
+        btn.addEventListener('click', () => apply(btn.dataset.segment));
+      });
+      apply('stay');
     });
-    // Без этого вызова текст WhatsApp для сегмента «Отдых» подставлялся бы
-    // только после клика — до него ссылка использовала общий текст-заглушку.
-    apply('stay');
   }
 
   document.addEventListener('DOMContentLoaded', patchRoom5, { once: true });
