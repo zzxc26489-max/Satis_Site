@@ -3641,3 +3641,21 @@ textarea:focus-visible {
   .home .stay-card__body { grid-template-columns: 125px minmax(0, 1fr) 150px; gap: 15px; padding-left: 22px; }
   .home .desktop-homes-title { column-gap: 40px; }
 }
+
+
+/* Исправления визуальной проверки ПК-концепта. */
+@media (min-width: 761px) {
+  .home .stay-grid { grid-template-columns: minmax(0, 1fr); }
+  .home .photo-band:not(.photo-band--right) .photo-band__text,
+  .home .photo-band:not(.photo-band--right) .photo-band__text h2,
+  .home .photo-band:not(.photo-band--right) .photo-band__text .accent {
+    color: #1f3927;
+  }
+  .home .photo-band:not(.photo-band--right) .photo-band__text p { color: #647067; }
+  .home .photo-band:not(.photo-band--right) .photo-band__list li {
+    border-color: #cad2c7;
+    background: #fffef9;
+    color: #35513b;
+  }
+  .home .photo-band:not(.photo-band--right) .photo-band__links .text-link { color: #b9672f; }
+}
