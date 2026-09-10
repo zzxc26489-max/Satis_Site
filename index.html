@@ -16,7 +16,7 @@
 <link rel="preload" href="assets/fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/caveat-accent.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/fonts.css">
-<link rel="stylesheet" href="assets/css/style.css?v=desktop-concept-2">
+<link rel="stylesheet" href="assets/css/style.css?v=desktop-exact-1">
 </head>
 <body class="home">
 
@@ -51,6 +51,172 @@
 </header>
 
 <main>
+
+  <div class="desktop-exact">
+    <section class="dx-hero">
+      <img class="dx-hero__image" src="assets/img/foto/hero-1600.webp" width="1600" height="1200"
+           alt="Зелёный двор гостевых домов «Сатис»" fetchpriority="high" decoding="async">
+
+      <header class="dx-header">
+        <a class="dx-header__logo" href="index.html">Гостевой дом <strong>«Сатис»</strong></a>
+        <nav class="dx-header__nav" aria-label="Навигация по главной">
+          <a href="doma.html">Дома</a>
+          <a href="#dx-format">Размещение</a>
+          <a href="komandirovochnym.html">Для организаций</a>
+          <a href="#dx-booking">Как забронировать</a>
+          <a href="kontakty.html">Контакты</a>
+        </nav>
+        <a class="dx-button dx-button--header" href="#dx-booking">Узнать свободные даты <span aria-hidden="true">→</span></a>
+      </header>
+
+      <div class="dx-shell dx-hero__content">
+        <h1>Дома для<br>отдыха и работы</h1>
+        <p class="dx-hero__tagline">Тишина. Комфорт. Простор.</p>
+        <div class="dx-segment" role="group" aria-label="Кому нужен дом" data-hero-segment data-stay-href="#dx-booking">
+          <button type="button" class="hero-segment__btn is-active" data-segment="stay" aria-pressed="true">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+            Отдых с семьёй
+          </button>
+          <button type="button" class="hero-segment__btn" data-segment="brigade" aria-pressed="false">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5"/><path d="M14 6a6 6 0 0 1 6 6v3"/><path d="M4 15v-3a6 6 0 0 1 6-6"/><rect x="2" y="15" width="20" height="4" rx="1"/></svg>
+            Размещение бригад
+          </button>
+        </div>
+        <a class="dx-button dx-button--hero" href="#dx-booking" data-hero-cta>
+          <span data-hero-cta-label>Узнать свободные даты</span><span aria-hidden="true">→</span>
+        </a>
+        <p class="dx-location">⌖ &nbsp; рп Сатис, 20 км от Первомайска</p>
+      </div>
+      <p class="dx-hero__caption">Настоящие гостевые дома<br>в Сатисе — для семьи и бригад</p>
+    </section>
+
+    <section class="dx-facts" aria-label="Главные преимущества">
+      <div class="dx-shell dx-facts__grid">
+        <div class="dx-fact"><span class="dx-fact__icon">⌂</span><strong>3 дома</strong></div>
+        <div class="dx-fact"><span class="dx-fact__icon">♙</span><strong>до 36 мест</strong></div>
+        <div class="dx-fact"><span class="dx-fact__icon">♨</span><strong>баня</strong></div>
+        <div class="dx-fact"><span class="dx-fact__icon">▣</span><strong>парковка</strong></div>
+      </div>
+    </section>
+
+    <section class="dx-section dx-format" id="dx-format">
+      <div class="dx-shell">
+        <div class="dx-section__head">
+          <h2>Как можно разместиться</h2>
+          <p>У нас удобно и семьям, и рабочим бригадам.<br>Спокойная территория, всё необходимое для комфортного проживания.</p>
+        </div>
+        <div class="dx-format__grid">
+          <article class="dx-format-card">
+            <img src="assets/img/foto/dom-1/dom-1-kuhnya-1-1-800.webp" width="5712" height="4284"
+                 alt="Гостиная дома №1" loading="lazy" decoding="async">
+            <div>
+              <h3>Отдых с семьёй</h3>
+              <p>Просторные дома, зелёная территория, баня. Отличное место для спокойного отдыха на природе.</p>
+              <ul>
+                <li>Тихая территория</li>
+                <li>Можно с детьми</li>
+                <li>Баня на территории</li>
+              </ul>
+            </div>
+          </article>
+          <article class="dx-format-card">
+            <img src="assets/img/foto/hero-800.webp" width="800" height="600"
+                 alt="Территория гостевых домов «Сатис»" loading="lazy" decoding="async">
+            <div>
+              <h3>Размещение бригад</h3>
+              <p>Удобные дома на большую компанию. Всё необходимое для длительного проживания и работы рядом.</p>
+              <ul>
+                <li>До 36 мест</li>
+                <li>Удобная парковка</li>
+                <li>Спокойная территория</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dx-homes" id="dx-homes">
+      <div class="dx-shell">
+        <div class="dx-section__head dx-section__head--homes">
+          <h2>Три дома на одной территории</h2>
+          <p>Уютные дома, общая территория, баня, парковка.<br>Выберите подходящий вариант.</p>
+        </div>
+
+        <article class="dx-home-row">
+          <img src="assets/img/foto/dom-1/dom-1-kuhnya-1-1-800.webp" width="5712" height="4284" alt="Дом №1" loading="lazy" decoding="async">
+          <div class="dx-home-row__title"><h3>Дом №1</h3><span>до 12 мест</span></div>
+          <span class="dx-home-row__feature">▰ &nbsp; Спальные комнаты</span>
+          <span class="dx-home-row__feature">▣ &nbsp; Кухня</span>
+          <span class="dx-home-row__feature">▱ &nbsp; Телевизор</span>
+          <a href="dom-1.html">Подробнее <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="dx-home-row">
+          <img src="assets/img/foto/dom-2/dom-2-kuhnya-3-3-800.webp" width="1220" height="607" alt="Дом №2" loading="lazy" decoding="async">
+          <div class="dx-home-row__title"><h3>Дом №2</h3><span>до 24 мест</span></div>
+          <span class="dx-home-row__feature">▰ &nbsp; Спальные комнаты</span>
+          <span class="dx-home-row__feature">♨ &nbsp; Душ и санузел</span>
+          <span class="dx-home-row__feature">⌁ &nbsp; Wi‑Fi</span>
+          <a href="dom-2.html">Подробнее <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="dx-home-row">
+          <img src="assets/img/foto/dom-3/dom-3-fasad-800.webp" width="800" height="600" alt="Дом через дорогу" loading="lazy" decoding="async">
+          <div class="dx-home-row__title"><h3>Дом через дорогу</h3><span>помесячно</span></div>
+          <span class="dx-home-row__feature">▰ &nbsp; 3 комнаты</span>
+          <span class="dx-home-row__feature">▣ &nbsp; Кухня</span>
+          <span class="dx-home-row__feature">♨ &nbsp; Душ и санузел</span>
+          <a href="dom-3.html">Подробнее <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="dx-org">
+      <div class="dx-shell dx-org__grid">
+        <h2>Для организаций<br>и рабочих бригад</h2>
+        <div class="dx-org__item"><span>▤</span><p>Заключаем договор<br>с организациями</p></div>
+        <div class="dx-org__item"><span>▣</span><p>Возможна оплата<br>от организации</p></div>
+        <div class="dx-org__item"><span>◷</span><p>Отвечаем<br>в тот же день</p></div>
+      </div>
+    </section>
+
+    <section class="dx-booking" id="dx-booking">
+      <div class="dx-shell">
+        <div class="dx-section__head dx-section__head--booking">
+          <h2>Как забронировать</h2>
+          <p>Просто и без сложностей. Мы всегда на связи.</p>
+        </div>
+        <div class="dx-booking__steps">
+          <div class="dx-step">
+            <b>1</b><span class="dx-step__icon">◯</span>
+            <p><strong>Напишите в WhatsApp</strong><small>Оставьте короткое сообщение</small></p>
+          </div>
+          <div class="dx-step">
+            <b>2</b><span class="dx-step__icon">□</span>
+            <p><strong>Уточните свободные даты</strong><small>Мы подскажем варианты</small></p>
+          </div>
+          <div class="dx-step">
+            <b>3</b><span class="dx-step__icon">✓</span>
+            <p><strong>Приезжайте</strong><small>Заселяйтесь и отдыхайте</small></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dx-final">
+      <img src="assets/img/foto/hero-1600.webp" width="1600" height="1200" alt="" loading="lazy" decoding="async">
+      <div class="dx-shell dx-final__content">
+        <div><h2>Сатис ждёт вас</h2><p>Тишина, природа и настоящий отдых<br>совсем рядом.</p></div>
+        <div class="dx-final__action">
+          <a class="dx-button" href="#" data-contact="whatsapp-href"
+             data-whatsapp-text="Здравствуйте! Хочу узнать свободные даты в гостевом доме «Сатис»."
+             target="_blank" rel="noopener">Написать в WhatsApp <span aria-hidden="true">→</span></a>
+          <span>⌖ &nbsp; рп Сатис, 20 км от Первомайска</span>
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- ---------- Первый экран ---------- -->
   <section class="hero-home">
