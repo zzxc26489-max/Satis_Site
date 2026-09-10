@@ -4145,3 +4145,44 @@ textarea:focus-visible {
     .home .dx-format-card { grid-template-columns: 1fr 1fr; }
   }
 }
+
+
+/* Финальная детализация ПК-референса: единая линия иконок и заголовков. */
+@media (min-width: 761px) {
+  .home .dx-location,
+  .home .dx-final__action > span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .home .dx-location svg,
+  .home .dx-final__action > span svg { width: 14px; height: 14px; }
+  .home .dx-fact__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 29px;
+    height: 29px;
+  }
+  .home .dx-fact__icon svg { width: 27px; height: 27px; }
+  .home .dx-section__head--homes { grid-template-columns: 1.35fr .65fr; }
+  .home .dx-section__head--homes h2 { white-space: nowrap; }
+  .home .dx-home-row__feature {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .home .dx-home-row__feature svg { width: 17px; height: 17px; flex: 0 0 auto; }
+  .home .dx-org__item > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home .dx-org__item > span svg { width: 28px; height: 28px; }
+  .home .dx-step__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .home .dx-step__icon svg { width: 23px; height: 23px; }
+}
