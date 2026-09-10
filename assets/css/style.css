@@ -4597,11 +4597,7 @@ textarea:focus-visible {
     opacity: 1;
     transform: none;
   }
-  .home.reveal-on .desktop-exact .reveal {
-    opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 600ms ease, transform 600ms ease;
-  }
+  .home.reveal-on .desktop-exact .reveal,
   .home.reveal-on .desktop-exact .reveal.is-in {
     opacity: 1;
     transform: translateY(0);
