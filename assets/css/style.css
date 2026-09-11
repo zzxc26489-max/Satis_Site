@@ -4631,3 +4631,110 @@ textarea:focus-visible {
   .home .desktop-exact .reveal,
   .home .dx-gallery-card img { transition: none !important; }
 }
+
+
+/* =========================================================
+   ЕДИНЫЙ СТИЛЬ ВНУТРЕННИХ СТРАНИЦ
+   ---------------------------------------------------------
+   Тот же язык, что на главной и страницах домов: хлебные крошки,
+   рукописная строка-подводка, крупный serif-заголовок и двухколоночные
+   заголовки секций. Классы не привязаны к конкретной странице, поэтому
+   работают на всех разделах сразу.
+   ========================================================= */
+
+.page-head {
+  padding: clamp(32px, 5vw, 56px) 0 clamp(24px, 3vw, 36px);
+  max-width: 900px;
+}
+.crumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  color: #73786f;
+  font-size: .78rem;
+  font-weight: 600;
+}
+.crumbs a { color: inherit; }
+.crumbs a:hover { color: var(--pine, var(--green)); }
+.crumbs span::before { content: "›"; margin-right: 8px; }
+.page-kicker {
+  margin: 0 0 9px;
+  color: #97673d;
+  font-family: var(--font-accent);
+  font-size: 1.32rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.page-head h1 {
+  margin: 0 0 16px;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(2.4rem, 4.4vw, 4rem);
+  line-height: .98;
+  letter-spacing: -.04em;
+}
+.page-head .lead {
+  max-width: 640px;
+  margin: 0;
+  color: #59615b;
+  font-size: clamp(1rem, 1.4vw, 1.12rem);
+  line-height: 1.6;
+}
+
+/* Заголовок секции: слева крупный serif, справа пояснение.
+   Разметка та же, что была (h2 + p) — меняется только подача. */
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 420px);
+  gap: 40px;
+  align-items: end;
+  max-width: none;
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border);
+}
+.section-head h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.02;
+  letter-spacing: -.04em;
+}
+.section-head p {
+  margin: 0;
+  color: #677068;
+  font-size: .94rem;
+  line-height: 1.55;
+}
+/* Секция без пояснения справа — заголовок занимает всю ширину */
+.section-head:not(:has(p)) { grid-template-columns: 1fr; }
+
+@media (max-width: 860px) {
+  .section-head {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+  }
+  .section-head p { font-size: .88rem; }
+  .page-head { padding-top: 24px; }
+  .crumbs { margin-bottom: 14px; }
+}
+
+/* Заголовки внутри страницы — тем же serif, что и заголовок страницы.
+   Ловим и те h2, что лежат в тёмных плашках и отдельных блоках,
+   а не только в .section-head. */
+.inner-page main h2,
+.inner-page main h3 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -.035em;
+}
+.inner-page main h3 { letter-spacing: -.02em; }
+.inner-page .cta-band h2 { font-size: clamp(1.6rem, 2.4vw, 2.3rem); line-height: 1.05; }
+
+/* Атрибут hidden должен побеждать любой display из классов —
+   иначе скрытые хранилища галерей показываются на странице. */
+[hidden] { display: none !important; }

@@ -292,13 +292,13 @@
   .house-detail-page .living-list .room-body > .room-meta { display: none; }
 }
 
-.house-detail-page .facility-grid {
+:where(.house-detail-page, .inner-page) .facility-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 12px;
 }
 
-.house-detail-page .facility-grid .room-card {
+:where(.house-detail-page, .inner-page) .facility-grid .room-card {
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -312,12 +312,12 @@
   text-align: left;
   box-shadow: none;
 }
-.house-detail-page .facility-grid .room-card:hover { border-color: #c7bca8; box-shadow: var(--shadow-sm); transform: translateY(-2px); }
-.house-detail-page .facility-grid .room-thumb { position: relative; display: block; height: 154px; overflow: hidden; }
-.house-detail-page .facility-grid .room-thumb::after { display: none; }
-.house-detail-page .facility-grid .room-thumb img { width: 100%; height: 100%; object-fit: cover; }
-.house-detail-page .facility-grid .room-body { display: block; padding: 15px 16px 16px; }
-.house-detail-page .facility-grid .room-name {
+:where(.house-detail-page, .inner-page) .facility-grid .room-card:hover { border-color: #c7bca8; box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+:where(.house-detail-page, .inner-page) .facility-grid .room-thumb { position: relative; display: block; height: 154px; overflow: hidden; }
+:where(.house-detail-page, .inner-page) .facility-grid .room-thumb::after { display: none; }
+:where(.house-detail-page, .inner-page) .facility-grid .room-thumb img { width: 100%; height: 100%; object-fit: cover; }
+:where(.house-detail-page, .inner-page) .facility-grid .room-body { display: block; padding: 15px 16px 16px; }
+:where(.house-detail-page, .inner-page) .facility-grid .room-name {
   display: block;
   margin-bottom: 5px;
   color: var(--house-ink);
@@ -325,8 +325,8 @@
   font-size: 1.12rem;
   line-height: 1.13;
 }
-.house-detail-page .facility-grid .room-meta { display: block; color: #68716a; font-size: .76rem; line-height: 1.4; }
-.house-detail-page .facility-grid .room-count {
+:where(.house-detail-page, .inner-page) .facility-grid .room-meta { display: block; color: #68716a; font-size: .76rem; line-height: 1.4; }
+:where(.house-detail-page, .inner-page) .facility-grid .room-count {
   position: absolute;
   right: 9px;
   bottom: 9px;
@@ -437,12 +437,12 @@
   .house-detail-page .room-floor { margin-top: 5px; padding: 3px 7px; font-size: .57rem; }
   .house-detail-page .living-extra { display: none; }
   .house-detail-page .living-arrow { font-size: 1.1rem; }
-  .house-detail-page .facility-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
-  .house-detail-page .facility-grid .room-card { min-height: 205px; border-radius: 13px; }
-  .house-detail-page .facility-grid .room-thumb { height: 120px; }
-  .house-detail-page .facility-grid .room-body { padding: 11px; }
-  .house-detail-page .facility-grid .room-name { font-size: .93rem; }
-  .house-detail-page .facility-grid .room-meta { font-size: .65rem; }
+  :where(.house-detail-page, .inner-page) .facility-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+  :where(.house-detail-page, .inner-page) .facility-grid .room-card { min-height: 205px; border-radius: 13px; }
+  :where(.house-detail-page, .inner-page) .facility-grid .room-thumb { height: 120px; }
+  :where(.house-detail-page, .inner-page) .facility-grid .room-body { padding: 11px; }
+  :where(.house-detail-page, .inner-page) .facility-grid .room-name { font-size: .93rem; }
+  :where(.house-detail-page, .inner-page) .facility-grid .room-meta { font-size: .65rem; }
   .house-detail-page .facility-floor { font-size: .57rem; }
   .house-detail-page .territory-panel { border-radius: 16px; }
   .house-detail-page .territory-photo { min-height: 245px; }
