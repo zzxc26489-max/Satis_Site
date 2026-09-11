@@ -247,7 +247,7 @@
   border-radius: 999px;
   background: rgba(20,31,25,.78);
   color: #fff;
-  font-size: .64rem;
+  font-size: 0.75rem;
   line-height: 1;
 }
 
@@ -270,7 +270,7 @@
   border-radius: 999px;
   background: #ece9df;
   color: #536057;
-  font-size: .68rem;
+  font-size: 0.75rem;
   font-weight: 700;
 }
 .house-detail-page .living-extra {
@@ -334,10 +334,10 @@
   border-radius: 999px;
   background: rgba(20,31,25,.8);
   color: #fff;
-  font-size: .65rem;
+  font-size: 0.75rem;
   line-height: 1;
 }
-.house-detail-page .facility-floor { display: block; margin-bottom: 5px; color: #9a693f; font-size: .69rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
+.house-detail-page .facility-floor { display: block; margin-bottom: 5px; color: #9a693f; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: .05em; }
 
 .house-detail-page .territory-panel {
   display: grid;
@@ -418,7 +418,7 @@
     gap: 7px;
   }
   .house-detail-page .house-gallery__item { border-radius: 12px; }
-  .house-detail-page .house-gallery__label { left: 9px; bottom: 9px; padding: 5px 8px; font-size: .63rem; }
+  .house-detail-page .house-gallery__label { left: 9px; bottom: 9px; padding: 5px 8px; font-size: 0.75rem; }
   .house-detail-page .section-heading { grid-template-columns: 1fr; gap: 10px; margin-bottom: 12px; padding-bottom: 14px; }
   .house-detail-page .house-section h2,
   .house-detail-page .house-decision h2 { font-size: clamp(2rem, 10vw, 2.65rem); }
@@ -431,10 +431,10 @@
   }
   .house-detail-page .living-list .room-card:hover { padding-inline: 0; background: transparent; }
   .house-detail-page .living-list .room-thumb { height: 68px; border-radius: 9px; }
-  .house-detail-page .living-list .room-count { right: 4px; bottom: 4px; padding: 3px 5px; font-size: .52rem; }
+  .house-detail-page .living-list .room-count { right: 4px; bottom: 4px; padding: 3px 5px; font-size: 0.75rem; }
   .house-detail-page .living-list .room-name { margin-bottom: 4px; font-size: 1.06rem; }
-  .house-detail-page .living-list .room-meta { display: block; font-size: .69rem; line-height: 1.25; }
-  .house-detail-page .room-floor { margin-top: 5px; padding: 3px 7px; font-size: .57rem; }
+  .house-detail-page .living-list .room-meta { display: block; font-size: 0.75rem; line-height: 1.25; }
+  .house-detail-page .room-floor { margin-top: 5px; padding: 3px 7px; font-size: 0.75rem; }
   .house-detail-page .living-extra { display: none; }
   .house-detail-page .living-arrow { font-size: 1.1rem; }
   :where(.house-detail-page, .inner-page) .facility-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
@@ -442,8 +442,8 @@
   :where(.house-detail-page, .inner-page) .facility-grid .room-thumb { height: 120px; }
   :where(.house-detail-page, .inner-page) .facility-grid .room-body { padding: 11px; }
   :where(.house-detail-page, .inner-page) .facility-grid .room-name { font-size: .93rem; }
-  :where(.house-detail-page, .inner-page) .facility-grid .room-meta { font-size: .65rem; }
-  .house-detail-page .facility-floor { font-size: .57rem; }
+  :where(.house-detail-page, .inner-page) .facility-grid .room-meta { font-size: 0.75rem; }
+  .house-detail-page .facility-floor { font-size: 0.75rem; }
   .house-detail-page .territory-panel { border-radius: 16px; }
   .house-detail-page .territory-photo { min-height: 245px; }
   .house-detail-page .territory-copy { padding: 25px 20px; }

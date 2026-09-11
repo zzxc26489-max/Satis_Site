@@ -156,7 +156,17 @@
     });
   }
 
+  /* Большая таблица сравнения на телефоне стартует свёрнутой:
+     в развёрнутом виде она занимает несколько экранов, а всё главное
+     уже показано карточками выше. В разметке блок открыт, поэтому
+     без скрипта содержимое остаётся на месте. */
+  function initMobileFold() {
+    if (!window.matchMedia('(max-width: 760px)').matches) return;
+    document.querySelectorAll('[data-fold-mobile]').forEach((el) => { el.open = false; });
+  }
+
   document.addEventListener('DOMContentLoaded', patchRoom5, { once: true });
+  document.addEventListener('DOMContentLoaded', initMobileFold, { once: true });
   document.addEventListener('DOMContentLoaded', initSliders, { once: true });
   document.addEventListener('DOMContentLoaded', initParallax, { once: true });
   document.addEventListener('DOMContentLoaded', initHeroSegment, { once: true });

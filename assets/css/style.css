@@ -1570,7 +1570,7 @@ body.lightbox-open { overflow: hidden; }
 
 /* ---------- Текстовая колонка ---------- */
 .hero-home__content { min-width: 0; }
-.hero-home h1 {
+.hero-home h1, .hero-home .hero-home__title {
   font-size: clamp(2.1rem, 4.6vw, 3.2rem);
   line-height: 1.08;
   margin-bottom: .3em;
@@ -2176,7 +2176,7 @@ textarea:focus-visible {
     display: flex;
     flex-direction: column;
     color: #263e2a;
-    font-family: "Satis Condensed", Impact, sans-serif;
+    font-family: Impact, sans-serif;
     font-size: clamp(3.45rem, 16.2vw, 4.55rem);
     font-weight: 600;
     line-height: .73;
@@ -2187,7 +2187,7 @@ textarea:focus-visible {
     margin-top: 12px;
     color: #263e2a;
     font-family: var(--font-body);
-    font-size: .69rem;
+    font-size: 0.75rem;
     font-weight: 700;
     line-height: 1.12;
     letter-spacing: -.025em;
@@ -2239,11 +2239,11 @@ textarea:focus-visible {
     padding: 24px 5px 0;
     text-align: center;
   }
-  .home .hero-home h1 {
+  .home .hero-home h1, .hero-home .hero-home__title, .home .hero-home .hero-home__title {
     max-width: 650px;
     margin: 0 auto 9px;
     color: #263e2a;
-    font-family: "Satis Condensed", Impact, sans-serif;
+    font-family: Impact, sans-serif;
     font-size: clamp(3.05rem, 13.4vw, 4.7rem);
     font-weight: 600;
     line-height: .88;
@@ -2281,7 +2281,7 @@ textarea:focus-visible {
     padding: 12px 7px;
     border-radius: 16px;
     color: #2c472f;
-    font-family: "Satis Condensed", var(--font-display);
+    font-family: var(--font-display);
     font-size: clamp(1.12rem, 5vw, 1.42rem);
     font-weight: 600;
     line-height: .94;
@@ -2311,7 +2311,7 @@ textarea:focus-visible {
     background: #f36c14;
     box-shadow: none;
     color: #fff;
-    font-family: "Satis Condensed", var(--font-display);
+    font-family: var(--font-display);
     font-size: 1.56rem;
     font-weight: 600;
     line-height: 1;
@@ -2354,19 +2354,21 @@ textarea:focus-visible {
   .home .trust-facts__t {
     color: #293e2d;
     font-family: var(--font-body);
-    font-size: .74rem;
+    font-size: 0.75rem;
     font-weight: 800;
     line-height: 1.13;
   }
   .home .trust-facts__s {
     color: #293e2d;
-    font-size: .67rem;
+    font-size: 0.75rem;
     font-weight: 600;
     line-height: 1.13;
   }
 
   .home .intro-teaser {
-    grid-template-columns: 1.15fr .85fr;
+    /* Было две колонки: в 160-пиксельной колонке заголовок рвался
+       на три строки. Ставим фото над текстом. */
+    grid-template-columns: 1fr;
     gap: 0;
     margin: 0 0 40px;
     padding: 0;
@@ -2377,8 +2379,8 @@ textarea:focus-visible {
   }
   .home .intro-teaser__media {
     border-radius: 0;
-    aspect-ratio: auto;
-    min-height: 224px;
+    aspect-ratio: 16 / 10;
+    min-height: 0;
   }
   .home .intro-teaser__media img { object-position: 50% 50%; }
   .home .intro-teaser__body {
@@ -2391,17 +2393,17 @@ textarea:focus-visible {
   .home .intro-teaser__body h3 {
     margin: 0 0 8px;
     color: #28472e;
-    font-family: "Satis Condensed", var(--font-display);
-    font-size: clamp(1.55rem, 7vw, 2.25rem);
-    font-weight: 600;
-    line-height: .94;
-    letter-spacing: -.02em;
-    text-transform: uppercase;
+    font-family: var(--font-display);
+    font-family: var(--font-serif);
+    font-size: clamp(1.4rem, 5.6vw, 1.85rem);
+    font-weight: 500;
+    line-height: 1.04;
+    letter-spacing: -.03em;
   }
   .home .intro-teaser__body p {
     margin: 0 0 10px;
     color: #667068;
-    font-size: .72rem;
+    font-size: 0.75rem;
     line-height: 1.26;
   }
   .home .intro-teaser__body .text-link {
@@ -2416,12 +2418,12 @@ textarea:focus-visible {
 
 @media (max-width: 370px) {
   .home .site-header .container { padding-left: 20px; padding-right: 20px; }
-  .home .home-mark { font-size: .72rem; gap: 4px; }
+  .home .home-mark { font-size: 0.75rem; gap: 4px; }
   .home .home-mark svg { width: 32px; }
-  .home .hero-home h1 { font-size: 2.85rem; }
+  .home .hero-home h1, .hero-home .hero-home__title, .home .hero-home .hero-home__title { font-size: 2.85rem; }
   .home .hero-segment__btn { font-size: 1.03rem; }
-  .home .trust-facts__t { font-size: .68rem; }
-  .home .trust-facts__s { font-size: .62rem; }
+  .home .trust-facts__t { font-size: 0.75rem; }
+  .home .trust-facts__s { font-size: 0.75rem; }
 }
 
 /* =========================================================
@@ -2457,7 +2459,7 @@ textarea:focus-visible {
     border-radius: 0;
   }
   .home .hero-home__content { padding: 21px 20px 0; }
-  .home .hero-home h1 {
+  .home .hero-home h1, .hero-home .hero-home__title, .home .hero-home .hero-home__title {
     max-width: none;
     margin-bottom: 8px;
     font-size: clamp(2.25rem, 10vw, 4.2rem);
@@ -2534,7 +2536,7 @@ textarea:focus-visible {
   }
   .home .intro-teaser__body p {
     margin-bottom: 8px;
-    font-size: .69rem;
+    font-size: 0.75rem;
     line-height: 1.22;
   }
   .home .intro-teaser__body .card-link {
@@ -2542,7 +2544,7 @@ textarea:focus-visible {
     align-items: center;
     gap: 4px;
     color: #e15b12;
-    font-size: .73rem;
+    font-size: 0.75rem;
     font-weight: 800;
     white-space: nowrap;
   }
@@ -2588,10 +2590,10 @@ textarea:focus-visible {
 }
 
 @media (max-width: 370px) {
-  .home .hero-home h1 { font-size: 2.1rem; }
+  .home .hero-home h1, .hero-home .hero-home__title, .home .hero-home .hero-home__title { font-size: 2.1rem; }
   .home .home-logo__mobile { font-size: 2.7rem; }
   .home .numbers__item { padding: 14px 13px; }
-  .home .numbers__label { font-size: .73rem; }
+  .home .numbers__label { font-size: 0.75rem; }
 }
 
 
@@ -2650,7 +2652,7 @@ textarea:focus-visible {
     padding: 10px 8px;
   }
   .home .numbers__num { font-size: 1.76rem; }
-  .home .numbers__label { font-size: .69rem; }
+  .home .numbers__label { font-size: 0.75rem; }
 }
 
 
@@ -2671,11 +2673,11 @@ textarea:focus-visible {
   }
   .home .home-logo__mobile small {
     margin-top: 7px;
-    font-size: .58rem;
+    font-size: 0.75rem;
   }
   .home .home-mark {
     gap: 4px;
-    font-size: .64rem;
+    font-size: 0.75rem;
     line-height: 1.04;
   }
   .home .home-mark svg { width: 30px; height: 31px; }
@@ -2701,7 +2703,7 @@ textarea:focus-visible {
     text-shadow: 0 2px 20px rgba(0, 0, 0, .48);
     pointer-events: none;
   }
-  .home .hero-home__overlay h1 {
+  .home .hero-home__overlay h1, .hero-home__overlay .hero-home__title, .home .hero-home__overlay .hero-home__title {
     max-width: 320px;
     margin: 0 0 6px;
     color: #fff;
@@ -2730,7 +2732,7 @@ textarea:focus-visible {
     justify-content: space-between;
     margin: 0;
     color: #fff;
-    font-size: .74rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: -.02em;
     text-shadow: none;
@@ -2870,7 +2872,7 @@ textarea:focus-visible {
     left: 11px;
     padding: 6px 11px;
     border-radius: 999px;
-    font-size: .7rem;
+    font-size: 0.75rem;
     letter-spacing: .06em;
   }
   .home .stay-card__body { padding: 15px 16px 14px; }
@@ -2910,14 +2912,14 @@ textarea:focus-visible {
   }
   .home .stay-card__price span {
     font-family: var(--font-body);
-    font-size: .64rem;
+    font-size: 0.75rem;
     font-weight: 500;
   }
   .home .stay-card__foot .btn {
     padding: 8px 13px;
     border-color: #9eb19e;
     border-radius: 999px;
-    font-size: .72rem;
+    font-size: 0.75rem;
     white-space: nowrap;
   }
 
@@ -2960,7 +2962,7 @@ textarea:focus-visible {
     text-align: left;
     text-shadow: 0 2px 14px rgba(0, 0, 0, .54);
   }
-  .home .hero-home__overlay h1 {
+  .home .hero-home__overlay h1, .hero-home__overlay .hero-home__title, .home .hero-home__overlay .hero-home__title {
     width: 100%;
     max-width: none;
     margin: 0 0 8px;
@@ -3002,7 +3004,7 @@ textarea:focus-visible {
     width: 100%;
     margin: 0;
     color: #fff;
-    font-size: .65rem;
+    font-size: 0.75rem;
     font-weight: 600;
     line-height: 1;
     letter-spacing: -.02em;
@@ -3036,8 +3038,8 @@ textarea:focus-visible {
 }
 @media (max-width: 370px) {
   .home .hero-home__overlay { padding-inline: 17px; }
-  .home .hero-home__overlay h1 { font-size: 2.25rem; }
-  .home .hero-home__overlay .hero-home__lead { font-size: .59rem; }
+  .home .hero-home__overlay h1, .hero-home__overlay .hero-home__title, .home .hero-home__overlay .hero-home__title { font-size: 2.25rem; }
+  .home .hero-home__overlay .hero-home__lead { font-size: 0.75rem; }
   .home .hero-home__overlay .hero-home__lead span { padding-inline: 3px; }
 }
 
@@ -3126,7 +3128,7 @@ textarea:focus-visible {
     border-radius: 999px;
     background: rgba(17, 31, 20, .58);
     color: rgba(255,255,255,.94);
-    font-size: .72rem;
+    font-size: 0.75rem;
     box-shadow: none;
     backdrop-filter: blur(8px);
   }
@@ -3142,7 +3144,7 @@ textarea:focus-visible {
     text-shadow: 0 3px 18px rgba(0,0,0,.38);
     pointer-events: none;
   }
-  .home .hero-home__overlay h1 {
+  .home .hero-home__overlay h1, .hero-home__overlay .hero-home__title, .home .hero-home__overlay .hero-home__title {
     max-width: none;
     margin: 0 0 15px;
     color: #fff;
@@ -3254,7 +3256,7 @@ textarea:focus-visible {
   .home .trust-facts__s {
     margin-top: 3px;
     color: #667166;
-    font-size: .72rem;
+    font-size: 0.75rem;
     font-weight: 500;
     line-height: 1.15;
   }
@@ -3421,7 +3423,7 @@ textarea:focus-visible {
     border-radius: 999px;
     background: rgba(255,255,255,.9);
     color: #1f3927;
-    font-size: .68rem;
+    font-size: 0.75rem;
     letter-spacing: .06em;
   }
   .home .stay-card__body {
@@ -3453,7 +3455,7 @@ textarea:focus-visible {
     border-radius: 0;
     background: transparent;
     color: #526054;
-    font-size: .74rem;
+    font-size: 0.75rem;
     font-weight: 650;
   }
   .home .chip svg { width: 15px; height: 15px; }
@@ -3487,7 +3489,7 @@ textarea:focus-visible {
     margin-top: 3px;
     color: #727b73;
     font-family: var(--font-body);
-    font-size: .66rem;
+    font-size: 0.75rem;
     font-weight: 500;
   }
   .home .stay-card__foot .btn {
@@ -3495,7 +3497,7 @@ textarea:focus-visible {
     padding: 8px 14px;
     border-color: #aab8a8;
     border-radius: 999px;
-    font-size: .72rem;
+    font-size: 0.75rem;
   }
 
   .home .photo-band {
@@ -3530,7 +3532,7 @@ textarea:focus-visible {
   .home .photo-band__list li {
     padding: 6px 11px;
     border-radius: 999px;
-    font-size: .74rem;
+    font-size: 0.75rem;
   }
   .home .photo-band--right {
     display: block;
@@ -3639,7 +3641,7 @@ textarea:focus-visible {
     border-radius: 13px;
   }
   .home .form-band__trust-item strong { font-size: .8rem; }
-  .home .form-band__trust-item span { font-size: .7rem; }
+  .home .form-band__trust-item span { font-size: 0.75rem; }
 }
 
 @media (min-width: 761px) and (max-width: 1040px) {
@@ -3750,7 +3752,7 @@ textarea:focus-visible {
   }
   .home .dx-header__nav a {
     color: #304138;
-    font-size: .68rem;
+    font-size: 0.75rem;
     font-weight: 650;
     white-space: nowrap;
   }
@@ -3778,7 +3780,7 @@ textarea:focus-visible {
   .home .dx-button--header {
     min-height: 34px;
     padding: 8px 18px;
-    font-size: .67rem;
+    font-size: 0.75rem;
   }
   .home .dx-hero__content {
     position: relative;
@@ -3818,7 +3820,7 @@ textarea:focus-visible {
     border-radius: 999px;
     background: rgba(255,255,255,.94);
     color: #24382a;
-    font-size: .72rem;
+    font-size: 0.75rem;
     font-weight: 750;
   }
   .home .dx-segment .hero-segment__btn.is-active {
@@ -3834,7 +3836,7 @@ textarea:focus-visible {
   .home .dx-location {
     margin: 0;
     color: rgba(255,255,255,.94);
-    font-size: .67rem;
+    font-size: 0.75rem;
     font-weight: 650;
   }
   .home .dx-hero__caption {
@@ -3844,7 +3846,7 @@ textarea:focus-visible {
     bottom: 23px;
     margin: 0;
     color: rgba(255,255,255,.95);
-    font-size: .67rem;
+    font-size: 0.75rem;
     font-weight: 650;
     line-height: 1.35;
   }
@@ -3900,7 +3902,7 @@ textarea:focus-visible {
   .home .dx-section__head p {
     margin: 0;
     color: #59665d;
-    font-size: .69rem;
+    font-size: 0.75rem;
     line-height: 1.35;
   }
   .home .dx-format__grid {
@@ -3932,7 +3934,7 @@ textarea:focus-visible {
   .home .dx-format-card p {
     margin: 0 0 12px;
     color: #4d5b52;
-    font-size: .72rem;
+    font-size: 0.75rem;
     line-height: 1.35;
   }
   .home .dx-format-card ul {
@@ -3946,7 +3948,7 @@ textarea:focus-visible {
     position: relative;
     padding-left: 21px;
     color: #33483a;
-    font-size: .69rem;
+    font-size: 0.75rem;
     line-height: 1.25;
   }
   .home .dx-format-card li::before {
@@ -3961,7 +3963,7 @@ textarea:focus-visible {
     border-radius: 50%;
     background: #173e29;
     color: #fff;
-    font-size: .55rem;
+    font-size: 0.75rem;
     font-weight: 900;
   }
 
@@ -3997,17 +3999,17 @@ textarea:focus-visible {
   }
   .home .dx-home-row__title span {
     color: #4f5d53;
-    font-size: .65rem;
+    font-size: 0.75rem;
   }
   .home .dx-home-row__feature {
     color: #34443a;
-    font-size: .66rem;
+    font-size: 0.75rem;
     line-height: 1.2;
   }
   .home .dx-home-row > a {
     justify-self: end;
     color: #ad5e29;
-    font-size: .69rem;
+    font-size: 0.75rem;
     font-weight: 800;
     text-decoration: underline;
     text-underline-offset: 3px;
@@ -4045,7 +4047,7 @@ textarea:focus-visible {
   .home .dx-org__item p {
     margin: 0;
     color: #fff;
-    font-size: .68rem;
+    font-size: 0.75rem;
     font-weight: 650;
     line-height: 1.35;
   }
@@ -4094,13 +4096,13 @@ textarea:focus-visible {
   .home .dx-step strong {
     display: block;
     color: #172b1d;
-    font-size: .7rem;
+    font-size: 0.75rem;
   }
   .home .dx-step small {
     display: block;
     margin-top: 2px;
     color: #647067;
-    font-size: .6rem;
+    font-size: 0.75rem;
   }
 
   .home .dx-final {
@@ -4142,7 +4144,7 @@ textarea:focus-visible {
   }
   .home .dx-final__action > span {
     color: rgba(255,255,255,.94);
-    font-size: .65rem;
+    font-size: 0.75rem;
     font-weight: 650;
   }
 
@@ -4151,7 +4153,7 @@ textarea:focus-visible {
     .home .dx-header { width: calc(100% - 36px); }
     .home .dx-header { padding-inline: 16px; }
     .home .dx-header__nav { gap: 12px; padding-inline: 12px; }
-    .home .dx-header__nav a { font-size: .61rem; }
+    .home .dx-header__nav a { font-size: 0.75rem; }
     .home .dx-button--header { padding-inline: 13px; }
     .home .dx-home-row { grid-template-columns: 165px 135px repeat(3, minmax(86px,1fr)) 84px; }
     .home .dx-home-row img { width: 150px; }
@@ -4292,7 +4294,7 @@ textarea:focus-visible {
   .home .dx-gallery-card__label small {
     grid-column: 1 / -1;
     color: rgba(255,255,255,.86);
-    font-size: .68rem;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: 700;
     letter-spacing: .035em;
@@ -4307,7 +4309,7 @@ textarea:focus-visible {
   .home .dx-gallery-card--large .dx-gallery-card__label strong { font-size: 1.8rem; }
   .home .dx-gallery-card__label em {
     color: #fff;
-    font-size: .7rem;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: 750;
     white-space: nowrap;
@@ -4340,7 +4342,7 @@ textarea:focus-visible {
     padding: 10px 14px;
     background: rgba(20,45,29,.86);
     color: #fff;
-    font-size: .72rem;
+    font-size: 0.75rem;
     font-weight: 700;
     line-height: 1.35;
   }
@@ -4363,7 +4365,7 @@ textarea:focus-visible {
     border-radius: 999px;
     background: #f7f5ed;
     color: #263d2d;
-    font-size: .69rem;
+    font-size: 0.75rem;
     font-weight: 700;
   }
   .home .dx-text-link {
@@ -4469,7 +4471,7 @@ textarea:focus-visible {
   }
   .home .dx-contact__phone small {
     color: #6c756e;
-    font-size: .69rem;
+    font-size: 0.75rem;
   }
   .home .dx-contact__phone > a {
     width: max-content;
@@ -4480,7 +4482,7 @@ textarea:focus-visible {
   }
   .home .dx-contact__phone > span {
     color: #6c756e;
-    font-size: .69rem;
+    font-size: 0.75rem;
   }
   .home .dx-contact__card {
     padding: 28px;
@@ -4496,7 +4498,7 @@ textarea:focus-visible {
   .home .dx-contact__card .field { margin-bottom: 13px; }
   .home .dx-contact__card label {
     color: #34453a;
-    font-size: .68rem;
+    font-size: 0.75rem;
     font-weight: 700;
   }
   .home .dx-contact__card input,
@@ -4552,7 +4554,7 @@ textarea:focus-visible {
   .home .dx-contact__card .form-note {
     margin: 11px 0 0;
     color: #727a73;
-    font-size: .65rem;
+    font-size: 0.75rem;
     text-align: center;
   }
   .home .dx-contact__card .form-success:not(:empty) {
@@ -4582,7 +4584,7 @@ textarea:focus-visible {
   .home .dx-footer p {
     max-width: 350px;
     margin: 10px 0 0;
-    font-size: .72rem;
+    font-size: 0.75rem;
     line-height: 1.55;
   }
   .home .dx-footer nav,
@@ -4595,7 +4597,7 @@ textarea:focus-visible {
   .home .dx-footer__contacts { grid-template-columns: 1fr; }
   .home .dx-footer a {
     color: rgba(255,255,255,.82);
-    font-size: .71rem;
+    font-size: 0.75rem;
   }
   .home .dx-footer a:hover { color: #e2ae78; }
   .home .dx-footer__bottom {
@@ -4603,7 +4605,7 @@ textarea:focus-visible {
     justify-content: space-between;
     padding-top: 15px;
     border-top: 1px solid rgba(255,255,255,.14);
-    font-size: .65rem;
+    font-size: 0.75rem;
   }
 
   .home .desktop-exact .reveal {
@@ -4651,7 +4653,7 @@ textarea:focus-visible {
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 20px;
-  color: #73786f;
+  color: #676c64;
   font-size: .78rem;
   font-weight: 600;
 }
@@ -4738,3 +4740,196 @@ textarea:focus-visible {
 /* Атрибут hidden должен побеждать любой display из классов —
    иначе скрытые хранилища галерей показываются на странице. */
 [hidden] { display: none !important; }
+
+
+/* =========================================================
+   ТАБЛИЦЫ НА ТЕЛЕФОНЕ — ОТДЕЛЬНАЯ ПОДАЧА
+   ---------------------------------------------------------
+   На ПК таблица остаётся таблицей. На телефоне она разворачивается
+   в карточки: горизонтально прокручивать таблицу пальцем неудобно,
+   и половина колонок всё равно остаётся за краем экрана.
+   ========================================================= */
+@media (max-width: 760px) {
+  .table-scroll { overflow-x: visible; }
+  .table-scroll .extra-table { min-width: 0; }
+
+  .extra-table,
+  .extra-table tbody,
+  .extra-table tr,
+  .extra-table th,
+  .extra-table td {
+    display: block;
+    width: auto;
+  }
+  .extra-table {
+    border: none;
+    background: none;
+  }
+  .extra-table thead { display: none; }
+
+  /* Строка = карточка */
+  .extra-table tr {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    margin-bottom: 10px;
+  }
+  .extra-table th,
+  .extra-table td {
+    border: none;
+    padding: 0;
+  }
+  /* Первая ячейка — заголовок карточки */
+  .extra-table tr > th:first-child,
+  .extra-table.compare tr > td:first-child {
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    font-family: var(--font-serif);
+    font-weight: 500;
+    font-size: 1.12rem;
+    letter-spacing: -.02em;
+    color: var(--text);
+  }
+  .extra-table tr > td {
+    font-size: .95rem;
+    line-height: 1.5;
+  }
+  /* Остальные ячейки сравнения — «подпись: значение» */
+  .extra-table.compare tr > td[data-col]:not(:first-child) {
+    display: grid;
+    grid-template-columns: minmax(96px, 38%) 1fr;
+    gap: 12px;
+    padding: 6px 0;
+  }
+  .extra-table.compare tr > td[data-col]:not(:first-child)::before {
+    content: attr(data-col);
+    color: var(--muted);
+    font-size: .82rem;
+    font-weight: 600;
+  }
+  .extra-table.compare tr > td[data-col]:not(:first-child) + td { border-top: 1px solid var(--bg-soft); }
+}
+
+
+/* =========================================================
+   ТЕЛЕФОН: РАЗМЕРЫ ПОД ПАЛЕЦ
+   ---------------------------------------------------------
+   На ПК элементы остаются компактными — там курсор попадает точно.
+   На телефоне всё, что нажимают, доводим до 44px по высоте:
+   промахи по ссылке «позвонить» стоят звонка.
+   ========================================================= */
+@media (max-width: 760px) {
+  /* Логотип — тоже ссылка, ведёт на главную */
+  .site-header .logo {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Гамбургер — главный элемент навигации на телефоне */
+  .nav-toggle {
+    display: grid;
+    place-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+  }
+
+  /* Кнопки */
+  .btn { min-height: 44px; }
+  .btn-sm { min-height: 40px; }
+  .mobile-cta .btn { min-height: 46px; }
+
+  /* Телефонные номера — по ним звонят, промах недопустим */
+  .form-band__call .tel,
+  .contact-card .value,
+  a[href^="tel:"] {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Ссылки-действия внутри блоков */
+  .card-link,
+  .more,
+  .homes-intro a,
+  .territory-copy .more {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Меню в подвале: разреженный список вместо частокола строк */
+  .footer-nav li { margin-bottom: 2px; }
+  .footer-nav li a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  /* Хлебные крошки — вторичная навигация, но тоже пальцем */
+  .crumbs,
+  .house-breadcrumbs { gap: 6px 10px; }
+  .crumbs a,
+  .house-breadcrumbs a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+  }
+}
+
+
+/* Подписи фактов на узком экране: в четыре колонки они рвутся
+   на три строки («Парковка / удобная и / бесплатная»). */
+@media (max-width: 620px) {
+  .trust-facts,
+  .home .trust-facts { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .trust-facts__t,
+  .home .trust-facts__t { font-size: .95rem; }
+  .trust-facts__s,
+  .home .trust-facts__s { font-size: .8rem; line-height: 1.35; }
+}
+
+
+/* ---------- Сворачиваемый блок (большая таблица на телефоне) ----------
+   Без JS блок открыт: содержимое всегда доступно и поисковику, и человеку.
+   Скрипт сворачивает его только на узком экране. */
+.fold { border: 0; }
+.fold__summary { display: none; }
+@media (max-width: 760px) {
+  .fold__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 48px;
+    padding: 12px 16px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+  .fold__summary::-webkit-details-marker { display: none; }
+  .fold__summary::after {
+    content: "";
+    width: 9px;
+    height: 9px;
+    border-right: 2px solid var(--muted);
+    border-bottom: 2px solid var(--muted);
+    transform: rotate(45deg) translate(-2px, -2px);
+    transition: transform var(--dur) var(--ease);
+  }
+  .fold[open] .fold__summary::after { transform: rotate(-135deg) translate(-3px, -3px); }
+  .fold__hint { color: var(--muted); font-weight: 500; font-size: .85rem; }
+  .fold[open] .fold__summary { margin-bottom: 12px; }
+}
+
+/* Длинные пояснения в таблице условий на широком экране растягивались
+   на ~120 символов в строку — читать тяжело. */
+@media (min-width: 1000px) {
+  .extra-table td { max-width: 52ch; }
+}

@@ -105,31 +105,34 @@
         <h2>Сравнение домов</h2>
         <p>Чтобы быстро понять, что вам подходит.</p>
       </div>
-      <div class="table-scroll">
+      <details class="fold" data-fold-mobile open>
+        <summary class="fold__summary">Полная таблица сравнения<span class="fold__hint">16 параметров</span></summary>
+        <div class="table-scroll">
         <table class="extra-table compare">
           <thead>
             <tr><th>Что важно</th><th>Дом №1</th><th>Дом №2</th><th>Дом через дорогу</th></tr>
           </thead>
           <tbody>
-            <tr><td>Как сдаётся</td><td>посуточно</td><td>посуточно</td><td>только помесячно, целиком</td></tr>
-            <tr><td>Цена</td><td>от 1 500 ₽ / сутки с человека</td><td>от 1 500 ₽ / сутки с человека</td><td>35 000 ₽ / месяц за дом</td></tr>
-            <tr><td>Кроватей</td><td>12</td><td>24 и 2 дивана</td><td>3 и диван</td></tr>
-            <tr><td>Сколько человек</td><td>до 14</td><td>до 28</td><td>до 4</td></tr>
-            <tr><td>Комнат</td><td>5</td><td>8</td><td>3</td></tr>
-            <tr><td>Кухонь</td><td>2</td><td>4</td><td>1</td></tr>
-            <tr><td>Санузлов</td><td>4</td><td>5</td><td>1</td></tr>
-            <tr><td>Душевых</td><td>3</td><td>4</td><td>1</td></tr>
-            <tr><td>Баня</td><td>да</td><td>да</td><td>нет</td></tr>
-            <tr><td>Стиральных машин</td><td>1</td><td>3</td><td>1</td></tr>
-            <tr><td>Кондиционер</td><td>в зале 2 этажа</td><td>на кухне 2 этажа</td><td>нет</td></tr>
-            <tr><td>Wi-Fi и ТВ в комнатах</td><td>да</td><td>да</td><td>да</td></tr>
-            <tr><td>Отопление (газ)</td><td>да</td><td>да</td><td>да</td></tr>
-            <tr><td>Мангал и беседка</td><td>да</td><td>да</td><td>мангал</td></tr>
-            <tr><td>Хорошо подходит</td><td>компании, бригаде</td><td>бригаде, мероприятию</td><td>долгой аренде: семье, паре, командировочным</td></tr>
+            <tr><td data-col="Что важно">Как сдаётся</td><td data-col="Дом №1">посуточно</td><td data-col="Дом №2">посуточно</td><td data-col="Дом через дорогу">только помесячно, целиком</td></tr>
+            <tr><td data-col="Что важно">Цена</td><td data-col="Дом №1">от 1 500 ₽ / сутки с человека</td><td data-col="Дом №2">от 1 500 ₽ / сутки с человека</td><td data-col="Дом через дорогу">35 000 ₽ / месяц за дом</td></tr>
+            <tr><td data-col="Что важно">Кроватей</td><td data-col="Дом №1">12</td><td data-col="Дом №2">24 и 2 дивана</td><td data-col="Дом через дорогу">3 и диван</td></tr>
+            <tr><td data-col="Что важно">Сколько человек</td><td data-col="Дом №1">до 14</td><td data-col="Дом №2">до 28</td><td data-col="Дом через дорогу">до 4</td></tr>
+            <tr><td data-col="Что важно">Комнат</td><td data-col="Дом №1">5</td><td data-col="Дом №2">8</td><td data-col="Дом через дорогу">3</td></tr>
+            <tr><td data-col="Что важно">Кухонь</td><td data-col="Дом №1">2</td><td data-col="Дом №2">4</td><td data-col="Дом через дорогу">1</td></tr>
+            <tr><td data-col="Что важно">Санузлов</td><td data-col="Дом №1">4</td><td data-col="Дом №2">5</td><td data-col="Дом через дорогу">1</td></tr>
+            <tr><td data-col="Что важно">Душевых</td><td data-col="Дом №1">3</td><td data-col="Дом №2">4</td><td data-col="Дом через дорогу">1</td></tr>
+            <tr><td data-col="Что важно">Баня</td><td data-col="Дом №1">да</td><td data-col="Дом №2">да</td><td data-col="Дом через дорогу">нет</td></tr>
+            <tr><td data-col="Что важно">Стиральных машин</td><td data-col="Дом №1">1</td><td data-col="Дом №2">3</td><td data-col="Дом через дорогу">1</td></tr>
+            <tr><td data-col="Что важно">Кондиционер</td><td data-col="Дом №1">в зале 2 этажа</td><td data-col="Дом №2">на кухне 2 этажа</td><td data-col="Дом через дорогу">нет</td></tr>
+            <tr><td data-col="Что важно">Wi-Fi и ТВ в комнатах</td><td data-col="Дом №1">да</td><td data-col="Дом №2">да</td><td data-col="Дом через дорогу">да</td></tr>
+            <tr><td data-col="Что важно">Отопление (газ)</td><td data-col="Дом №1">да</td><td data-col="Дом №2">да</td><td data-col="Дом через дорогу">да</td></tr>
+            <tr><td data-col="Что важно">Мангал и беседка</td><td data-col="Дом №1">да</td><td data-col="Дом №2">да</td><td data-col="Дом через дорогу">мангал</td></tr>
+            <tr><td data-col="Что важно">Хорошо подходит</td><td data-col="Дом №1">компании, бригаде</td><td data-col="Дом №2">бригаде, мероприятию</td><td data-col="Дом через дорогу">долгой аренде: семье, паре, командировочным</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="form-note" style="margin-top:14px;">Дом №1 и Дом №2 стоят рядом на общей территории — их можно занять вместе под большое мероприятие или крупный заезд. Двуспальную кровать можно занять вдвоём — тогда два больших дома принимают до 42 человек.</p>
+      
+      </details><p class="form-note" style="margin-top:14px;">Дом №1 и Дом №2 стоят рядом на общей территории — их можно занять вместе под большое мероприятие или крупный заезд. Двуспальную кровать можно занять вдвоём — тогда два больших дома принимают до 42 человек.</p>
     </div>
   </section>
 
