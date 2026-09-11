@@ -2366,9 +2366,7 @@ textarea:focus-visible {
   }
 
   .home .intro-teaser {
-    /* Было две колонки: в 160-пиксельной колонке заголовок рвался
-       на три строки. Ставим фото над текстом. */
-    grid-template-columns: 1fr;
+    grid-template-columns: 1.15fr .85fr;
     gap: 0;
     margin: 0 0 40px;
     padding: 0;
@@ -2379,8 +2377,8 @@ textarea:focus-visible {
   }
   .home .intro-teaser__media {
     border-radius: 0;
-    aspect-ratio: 16 / 10;
-    min-height: 0;
+    aspect-ratio: auto;
+    min-height: 224px;
   }
   .home .intro-teaser__media img { object-position: 50% 50%; }
   .home .intro-teaser__body {
@@ -2394,11 +2392,11 @@ textarea:focus-visible {
     margin: 0 0 8px;
     color: #28472e;
     font-family: var(--font-display);
-    font-family: var(--font-serif);
-    font-size: clamp(1.4rem, 5.6vw, 1.85rem);
-    font-weight: 500;
-    line-height: 1.04;
-    letter-spacing: -.03em;
+    font-size: clamp(1.55rem, 7vw, 2.25rem);
+    font-weight: 600;
+    line-height: .94;
+    letter-spacing: -.02em;
+    text-transform: uppercase;
   }
   .home .intro-teaser__body p {
     margin: 0 0 10px;
@@ -4880,17 +4878,6 @@ textarea:focus-visible {
   }
 }
 
-
-/* Подписи фактов на узком экране: в четыре колонки они рвутся
-   на три строки («Парковка / удобная и / бесплатная»). */
-@media (max-width: 620px) {
-  .trust-facts,
-  .home .trust-facts { grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
-  .trust-facts__t,
-  .home .trust-facts__t { font-size: .95rem; }
-  .trust-facts__s,
-  .home .trust-facts__s { font-size: .8rem; line-height: 1.35; }
-}
 
 
 /* ---------- Сворачиваемый блок (большая таблица на телефоне) ----------
