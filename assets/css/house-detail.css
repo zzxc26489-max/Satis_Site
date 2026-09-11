@@ -62,7 +62,7 @@
 .house-detail-page .house-hero h1,
 .house-detail-page .house-section h2,
 .house-detail-page .house-decision h2 {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   color: var(--house-ink);
   font-weight: 500;
   letter-spacing: -.045em;
@@ -256,7 +256,7 @@
   display: block;
   margin-bottom: 7px;
   color: var(--house-ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 1.4rem;
   line-height: 1.05;
 }
@@ -321,7 +321,7 @@
   display: block;
   margin-bottom: 5px;
   color: var(--house-ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--font-serif);
   font-size: 1.12rem;
   line-height: 1.13;
 }

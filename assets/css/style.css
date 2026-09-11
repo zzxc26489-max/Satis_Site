@@ -78,6 +78,9 @@
 
   --container: 1180px;
   --font-display: "Manrope", "Segoe UI", system-ui, sans-serif;
+  /* Заголовочный serif: тёплая книжная нота «загородного» стиля.
+     Georgia остаётся запасным вариантом, пока грузится Lora. */
+  --font-serif: "Lora", Georgia, "Times New Roman", serif;
   --font-body: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-accent: "Caveat", "Segoe Script", cursive;
   --header-h: 76px;
@@ -623,8 +626,18 @@ h3 { font-size: 1.25rem; }
 }
 .cta-band h2 { color: #fff; margin-bottom: 6px; }
 .cta-band p { color: #dbe3d3; margin: 0; }
-.cta-band .btn-outline { border-color: rgba(255,255,255,.5); color: #fff; }
-.cta-band .btn-outline:hover { border-color: #fff; background: rgba(255,255,255,.1); }
+/* Кнопка на тёмной плашке: у базового .btn-outline фон стал белым,
+   и белый текст на нём пропадал. Делаем фон прозрачным явно. */
+.cta-band .btn-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, .5);
+  color: #fff;
+}
+.cta-band .btn-outline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+}
 
 /* ---------- Contact page ---------- */
 .contact-grid {
@@ -2692,7 +2705,7 @@ textarea:focus-visible {
     max-width: 320px;
     margin: 0 0 6px;
     color: #fff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(2.34rem, 10.8vw, 3.42rem);
     font-weight: 500;
     line-height: .92;
@@ -2788,7 +2801,7 @@ textarea:focus-visible {
   .home .hero-home .btn-lg {
     min-height: 55px;
     border-radius: 999px;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.25rem;
     font-weight: 500;
   }
@@ -2811,7 +2824,7 @@ textarea:focus-visible {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1rem;
     color: #294b31;
   }
@@ -2863,7 +2876,7 @@ textarea:focus-visible {
   .home .stay-card__body { padding: 15px 16px 14px; }
   .home .stay-card__body h3 {
     margin: 0 0 11px;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.55rem;
     font-weight: 500;
     line-height: 1;
@@ -2891,7 +2904,7 @@ textarea:focus-visible {
     border-top: 1px solid #e1e3dc;
   }
   .home .stay-card__price {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.05rem;
     font-weight: 600;
   }
@@ -2952,7 +2965,7 @@ textarea:focus-visible {
     max-width: none;
     margin: 0 0 8px;
     color: #fff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(2.24rem, 10.3vw, 3.05rem);
     font-weight: 500;
     line-height: .88;
@@ -3133,7 +3146,7 @@ textarea:focus-visible {
     max-width: none;
     margin: 0 0 15px;
     color: #fff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(3.2rem, 5.6vw, 5.55rem);
     font-weight: 500;
     line-height: .89;
@@ -3269,7 +3282,7 @@ textarea:focus-visible {
   .home .desktop-homes-title h2 {
     margin: 0 0 15px;
     color: #1f3927;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(2.1rem, 3.2vw, 3.4rem);
     font-weight: 500;
     line-height: .98;
@@ -3314,7 +3327,7 @@ textarea:focus-visible {
   .home .desktop-format__copy h3 {
     margin: 0 0 7px;
     color: #203725;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.5rem;
     font-weight: 500;
     letter-spacing: -.035em;
@@ -3424,7 +3437,7 @@ textarea:focus-visible {
     grid-row: 1;
     margin: 0;
     color: #1f3927;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.62rem;
     font-weight: 500;
     letter-spacing: -.04em;
@@ -3465,7 +3478,7 @@ textarea:focus-visible {
   }
   .home .stay-card__price {
     color: #1f3927;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.08rem;
     font-weight: 600;
   }
@@ -3502,7 +3515,7 @@ textarea:focus-visible {
   }
   .home .photo-band__text h2 {
     margin-bottom: 13px;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(2rem, 3vw, 3.1rem);
     font-weight: 500;
     line-height: .98;
@@ -3725,7 +3738,7 @@ textarea:focus-visible {
   }
   .home .dx-header__logo {
     color: #192e20;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1rem;
     white-space: nowrap;
   }
@@ -3776,7 +3789,7 @@ textarea:focus-visible {
     max-width: 540px;
     margin: 0 0 7px;
     color: #fff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(3.25rem, 5.15vw, 4.8rem);
     font-weight: 500;
     line-height: .83;
@@ -3878,7 +3891,7 @@ textarea:focus-visible {
   .home .dx-final h2 {
     margin: 0;
     color: #142d1d;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(2rem, 3.25vw, 2.8rem);
     font-weight: 500;
     line-height: .95;
@@ -3911,7 +3924,7 @@ textarea:focus-visible {
   .home .dx-format-card h3 {
     margin: 3px 0 7px;
     color: #182e1e;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.35rem;
     font-weight: 600;
     line-height: 1;
@@ -3977,7 +3990,7 @@ textarea:focus-visible {
   .home .dx-home-row__title h3 {
     margin: 0 0 1px;
     color: #142d1d;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.18rem;
     font-weight: 600;
     line-height: 1;
@@ -4219,7 +4232,7 @@ textarea:focus-visible {
   .home .dx-contact h2 {
     margin: 0;
     color: #142d1d;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: clamp(2.25rem, 3.5vw, 3.4rem);
     font-weight: 500;
     line-height: .96;
@@ -4286,7 +4299,7 @@ textarea:focus-visible {
     text-transform: uppercase;
   }
   .home .dx-gallery-card__label strong {
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.42rem;
     font-weight: 500;
     line-height: 1;
@@ -4384,13 +4397,13 @@ textarea:focus-visible {
     display: block;
     margin-bottom: 32px;
     color: #ae6c3e;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: .77rem;
   }
   .home .dx-benefit h3 {
     margin: 0 0 9px;
     color: #173220;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.3rem;
     font-weight: 600;
   }
@@ -4461,7 +4474,7 @@ textarea:focus-visible {
   .home .dx-contact__phone > a {
     width: max-content;
     color: #173622;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.55rem;
     font-weight: 600;
   }
@@ -4562,7 +4575,7 @@ textarea:focus-visible {
   }
   .home .dx-footer strong {
     color: #fff;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: var(--font-serif);
     font-size: 1.35rem;
     font-weight: 600;
   }
