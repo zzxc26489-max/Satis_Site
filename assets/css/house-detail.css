@@ -42,7 +42,7 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 22px;
-  color: #73786f;
+  color: #6d7269;
   font-size: .78rem;
   font-weight: 600;
 }
@@ -119,7 +119,7 @@
 }
 
 .house-detail-page .house-price strong { font-size: 1.65rem; }
-.house-detail-page .house-price span { font-size: .88rem; color: #72776f; font-weight: 500; }
+.house-detail-page .house-price span { font-size: .88rem; color: #6d726a; font-weight: 500; }
 
 .house-detail-page .house-hero .btn {
   min-height: 51px;
@@ -129,7 +129,7 @@
 
 .house-detail-page .house-response {
   margin: 10px 0 0;
-  color: #777b75;
+  color: #6d716b;
   font-size: .78rem;
 }
 
