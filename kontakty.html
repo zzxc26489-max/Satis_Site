@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; form-action 'self'; frame-src https://yandex.ru https://*.yandex.ru; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Контакты и бронирование — Гостевой дом «Сатис»</title>
 <meta name="description" content="Контакты гостевых домов «Сатис»: телефоны, WhatsApp, Telegram, адрес ул. Гоголя, 7, рп Сатис. Форма бронирования и время для звонков.">
@@ -115,12 +115,15 @@
             </li>
           </ul>
 
-          <div class="map-placeholder">
-            <div>
-              <strong>Карта проезда появится здесь</strong>
-              <p style="margin:6px 0 0;">Вставим карту с точкой на ул. Гоголя, 7 — чтобы дорогу было видно сразу.</p>
-            </div>
-          </div>
+          <figure class="map-embed">
+            <iframe src="https://yandex.ru/map-widget/v1/?text=%D0%9D%D0%B8%D0%B6%D0%B5%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%B0%D1%8F%20%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C%2C%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D1%81%D0%BA%D0%BE%D0%B9%20%D0%BE%D0%BA%D1%80%D1%83%D0%B3%20%D0%9F%D0%B5%D1%80%D0%B2%D0%BE%D0%BC%D0%B0%D0%B9%D1%81%D0%BA%2C%20%D1%80%D0%BF%20%D0%A1%D0%B0%D1%82%D0%B8%D1%81%2C%20%D1%83%D0%BB%D0%B8%D1%86%D0%B0%20%D0%93%D0%BE%D0%B3%D0%BE%D0%BB%D1%8F%2C%207&z=17"
+                    title="Карта: гостевой дом «Сатис», ул. Гоголя, 7, рп Сатис"
+                    loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <figcaption>
+              ул. Гоголя, 7, рп Сатис, городской округ город Первомайск.
+              <a href="#" data-contact="map-href" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+            </figcaption>
+          </figure>
         </div>
 
         <aside class="booking-card static">
