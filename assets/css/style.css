@@ -593,6 +593,14 @@ h3 { font-size: 1.25rem; }
   margin: 24px 0;
 }
 .notice strong { color: var(--text); }
+.notice b { color: var(--text); font-weight: 800; }
+
+/* Предупреждение «нас часто путают» — тот же блок, но золотой кант,
+   чтобы читалось как важное, а не как обычное примечание. */
+.notice--warn {
+  border-left-color: var(--gold);
+  background: #faf4ec;
+}
 
 /* ---------- Rules list ---------- */
 .rules-block { margin-bottom: 34px; }
