@@ -4920,3 +4920,52 @@ textarea:focus-visible {
 @media (min-width: 1000px) {
   .extra-table td { max-width: 52ch; }
 }
+
+/* ---------- Схема участка ----------
+   Рисунок отдаётся как SVG, поэтому карточку держим узкой:
+   на широком экране схема не должна расползаться на всю колонку. */
+.site-plan {
+  margin: 0 auto;
+  max-width: 560px;
+  padding: var(--space-5);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.site-plan img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.site-plan figcaption {
+  margin-top: var(--space-4);
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 560px) {
+  .site-plan {
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+  }
+  .site-plan figcaption {
+    margin-top: var(--space-3);
+    font-size: .78rem;
+  }
+}
+
+/* Схему можно открыть отдельным файлом — на телефоне подписи мелкие,
+   в новой вкладке SVG масштабируется пальцами без потери качества. */
+.site-plan__zoom {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.site-plan figcaption a {
+  color: var(--gold-ink);
+  font-weight: 700;
+  white-space: nowrap;
+}

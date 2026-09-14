@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 950" width="600" height="950" role="img" aria-labelledby="planTitle planDesc" font-family="Manrope, &quot;Segoe UI&quot;, system-ui, -apple-system, sans-serif">
+<title id="planTitle">Схема участка гостевого дома «Сатис»</title>
+<desc id="planDesc">Два больших дома на общей огороженной территории между улицей Красной Армии и улицей Гоголя. За домами — площадка для мероприятий с зонтами, рядом кошкин дом. У Дома №1 беседка и костровое место с лежаками, у Дома №2 своя беседка. Детская зона с качелями и песочницей у Дома №1. Парковка вдоль улицы Гоголя. Дом через дорогу стоит на своей отдельной территории за улицей Гоголя.</desc>
+<rect width="600" height="950" fill="#f7f6f2"/>
+<rect x="0" y="6" width="600" height="42" fill="#efece3"/>
+<line x1="0" y1="27" x2="600" y2="27" stroke="#fff" stroke-width="2" stroke-dasharray="14 12"/>
+<text x="300.0" y="32" font-size="13" font-weight="600" fill="#5f6560" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">ул. Красной Армии</text>
+<rect x="0" y="806" width="600" height="42" fill="#efece3"/>
+<line x1="0" y1="827" x2="600" y2="827" stroke="#fff" stroke-width="2" stroke-dasharray="14 12"/>
+<text x="300.0" y="832" font-size="13" font-weight="600" fill="#5f6560" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">ул. Гоголя</text>
+<polygon points="21,53 551,53 561,799 88,799 48,505 21,113" fill="#e9ece1" stroke="#1a2b23" stroke-width="2.4" stroke-dasharray="9 7" stroke-linejoin="round" opacity=".92"/>
+<g fill="#c3ccb6">
+<circle cx="70" cy="150" r="9"/>
+<circle cx="120" cy="110" r="9"/>
+<circle cx="300" cy="95" r="9"/>
+<circle cx="360" cy="140" r="9"/>
+<circle cx="470" cy="110" r="9"/>
+<circle cx="520" cy="160" r="9"/>
+<circle cx="95" cy="250" r="9"/>
+<circle cx="430" cy="240" r="9"/>
+<circle cx="520" cy="270" r="9"/>
+<circle cx="80" cy="340" r="9"/>
+<circle cx="510" cy="380" r="9"/>
+<circle cx="70" cy="430" r="9"/>
+<circle cx="545" cy="450" r="9"/>
+<circle cx="120" cy="700" r="9"/>
+<circle cx="60" cy="600" r="9"/>
+<circle cx="545" cy="560" r="9"/>
+<circle cx="430" cy="760" r="9"/>
+<circle cx="300" cy="760" r="9"/>
+<circle cx="200" cy="290" r="9"/>
+<circle cx="330" cy="210" r="9"/>
+<circle cx="480" cy="600" r="9"/>
+<circle cx="120" cy="780" r="9"/>
+<circle cx="555" cy="700" r="9"/>
+<circle cx="350" cy="330" r="9"/>
+</g>
+<rect x="96" y="479" width="104" height="189" rx="6" fill="#d4a373" stroke="#1a2b23" stroke-width="2.4"/><text x="148.0" y="559.5" font-size="20" font-weight="800" fill="#1a2b23" text-anchor="middle">Дом №1</text><text x="148.0" y="579.5" font-size="13" font-weight="600" fill="#1a2b23" text-anchor="middle" opacity=".82">12 кроватей</text><rect x="104" y="626" width="88" height="30" rx="4" fill="#fff" fill-opacity=".55" stroke="#1a2b23" stroke-width="1.6" stroke-dasharray="5 4"/><text x="148.0" y="646" font-size="13" font-weight="700" fill="#1a2b23" text-anchor="middle">баня</text>
+<rect x="298" y="428" width="145" height="226" rx="6" fill="#d4a373" stroke="#1a2b23" stroke-width="2.4"/><text x="370.5" y="527.0" font-size="20" font-weight="800" fill="#1a2b23" text-anchor="middle">Дом №2</text><text x="370.5" y="547.0" font-size="13" font-weight="600" fill="#1a2b23" text-anchor="middle" opacity=".82">24 кровати</text><rect x="306" y="612" width="129" height="30" rx="4" fill="#fff" fill-opacity=".55" stroke="#1a2b23" stroke-width="1.6" stroke-dasharray="5 4"/><text x="370.5" y="632" font-size="13" font-weight="700" fill="#1a2b23" text-anchor="middle">баня</text>
+<circle cx="221" cy="300" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><g transform="translate(221 300) scale(0.92)" fill="none" stroke="#1a2b23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M-8 1a8 8 0 0 1 16 0Z"/><path d="M0 1v8"/><path d="M0 9q0 3-3 3"/></g>
+<text x="221" y="336" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Площадка для</text>
+<text x="221" y="353" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">мероприятий</text>
+<circle cx="429" cy="354" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><g transform="translate(429 354) scale(0.92)" fill="none" stroke="#1a2b23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M-7 1 0-6l7 7v7h-14Z"/><circle cx="0" cy="4" r="2.2"/></g>
+<text x="429" y="390" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Кошкин дом</text>
+<circle cx="152" cy="438" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><g transform="translate(152 438) scale(0.92)" fill="none" stroke="#1a2b23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M-10 0 0-6.5 10 0Z"/><path d="M0-6.5v-2.5"/><path d="M-6.5 0v7.5M6.5 0v7.5"/><path d="M-9 7.5h18"/></g>
+<text x="152" y="410" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Беседка</text>
+<circle cx="243" cy="468" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><g transform="translate(243 468) scale(0.92)" fill="none" stroke="#1a2b23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M0-8c4 5 6 7 4 11-1 2-3 3-4 3s-3-1-4-3c-2-4 0-6 4-11Z"/><path d="M-8 8 8 4M-8 4 8 8"/></g>
+<text x="243" y="504" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Костёр</text>
+<text x="243" y="521" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">и лежаки</text>
+<circle cx="252" cy="638" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><g transform="translate(252 638) scale(0.92)" fill="none" stroke="#1a2b23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="-5.2" cy="-5" r="3.2"/><circle cx="5.2" cy="-5" r="3.2"/><circle cx="0" cy="1.5" r="7.2"/><circle cx="0" cy="4.2" r="2.6"/></g>
+<text x="252" y="674" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Детская зона</text>
+<circle cx="497" cy="666" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><g transform="translate(497 666) scale(0.92)" fill="none" stroke="#1a2b23" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M-10 0 0-6.5 10 0Z"/><path d="M0-6.5v-2.5"/><path d="M-6.5 0v7.5M6.5 0v7.5"/><path d="M-9 7.5h18"/></g>
+<text x="497" y="702" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Беседка</text>
+<circle cx="147" cy="735" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><text x="147" y="741.5" font-size="18" font-weight="800" fill="#1a2b23" text-anchor="middle">P</text>
+<text x="147" y="771" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Парковка</text>
+<circle cx="364" cy="730" r="17" fill="#fff" stroke="#1a2b23" stroke-width="1.8"/><text x="364" y="736.5" font-size="18" font-weight="800" fill="#1a2b23" text-anchor="middle">P</text>
+<text x="364" y="766" font-size="14" font-weight="700" fill="#1a2b23" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Парковка</text>
+<text x="286" y="178" font-size="14" font-weight="700" fill="#5f6560" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">Лес и место</text>
+<text x="286" y="197" font-size="14" font-weight="700" fill="#5f6560" text-anchor="middle" paint-order="stroke" stroke="#f7f6f2" stroke-width="3.6" stroke-linejoin="round">для прогулок</text>
+<g transform="translate(521 96)"><circle r="19" fill="#fff" stroke="#1a2b23" stroke-width="1.6"/><path d="M0-12 4 2 0-1-4 2Z" fill="#1a2b23"/><text y="13" font-size="11" font-weight="800" fill="#1a2b23" text-anchor="middle">С</text></g>
+<path d="M470 799 V870" stroke="#1a2b23" stroke-width="2" stroke-dasharray="6 6" opacity=".5"/>
+<rect x="150" y="866" width="300" height="66" rx="14" fill="#fff" stroke="#1a2b23" stroke-width="2"/>
+<g transform="translate(186 899)" fill="none" stroke="#1a2b23" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M-10 2 0-7l10 9v9h-20Z"/><path d="M-3.5 11V5h7v6"/></g>
+<text x="212" y="895" font-size="14" font-weight="800" fill="#1a2b23">Дом через дорогу</text>
+<text x="212" y="914" font-size="12.5" font-weight="600" fill="#5f6560">своя территория, помесячно</text>
+</svg>
