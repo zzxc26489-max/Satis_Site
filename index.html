@@ -296,18 +296,15 @@
           </div>
         </div>
         <div class="dx-contact__card reveal">
-          <form data-booking-form data-house-name="Гостевой дом «Сатис» (заявка с ПК-версии)">
-            <div class="dx-contact__fields">
-              <div class="field"><label for="dx-dates">Даты заезда и выезда</label><input type="text" id="dx-dates" name="dates" placeholder="например, 12–15 сентября"></div>
-              <div class="field"><label for="dx-guests">Количество гостей</label><input type="number" id="dx-guests" name="guests" min="1" placeholder="сколько человек"></div>
-            </div>
-            <div class="field"><label for="dx-phone">Телефон<span class="req"> *</span></label><input type="tel" id="dx-phone" name="phone" placeholder="+7 900 000-00-00" required></div>
-            <div class="field"><label for="dx-comment">Что нужно</label><textarea id="dx-comment" name="comment" placeholder="Отдых с семьёй, баня, размещение бригады…"></textarea></div>
-            <label class="consent"><input type="checkbox" name="consent" required><span>Согласен на обработку данных — <a href="politika.html">условия</a></span></label>
-            <button type="submit" class="dx-button dx-contact__submit">Узнать цену и занятость <span aria-hidden="true">→</span></button>
-          </form>
-          <div class="form-success"></div>
-          <p class="form-note">Заявка откроется в WhatsApp — останется нажать «отправить».</p>
+          <div class="contact-actions">
+            <a class="dx-button dx-contact__submit" href="#" data-contact="whatsapp-href"
+               data-whatsapp-text="Здравствуйте! Хочу узнать свободные даты и стоимость в гостевом доме «Сатис»."
+               target="_blank" rel="noopener">Написать в WhatsApp <span aria-hidden="true">&#8594;</span></a>
+            <a class="btn btn-outline btn-block" href="#" data-contact="telegram-href"
+               target="_blank" rel="noopener">Написать в Telegram</a>
+            <a class="btn btn-outline btn-block" data-contact="phone-href"><span data-contact="phone-text">+7 903 602-34-08</span></a>
+          </div>
+          <p class="form-note">Формы на сайте нет: сообщение вы пишете и отправляете сами из своего мессенджера.</p>
         </div>
       </div>
     </section>
@@ -408,7 +405,7 @@
       <div class="desktop-format__head">
         <span class="desktop-kicker">Размещение для отдыха и работы</span>
         <h2>Как можно разместиться</h2>
-        <p>Тихая территория для семьи и удобное проживание для рабочих бригад — с понятной заявкой без ложного онлайн-бронирования.</p>
+        <p>Тихая территория для семьи и удобное проживание для рабочих бригад — с живым разговором вместо ложного онлайн-бронирования.</p>
       </div>
       <div class="desktop-format__grid">
         <article class="desktop-format__lane">
@@ -713,7 +710,7 @@
         <h2>Свободны ли ваши даты?</h2>
         <p>Напишите даты и сколько вас — посчитаем стоимость и подберём дом.</p>
         <ul class="steps">
-          <li><span class="n">1</span> Вы оставляете номер</li>
+          <li><span class="n">1</span> Вы пишете или звоните</li>
           <li><span class="n">2</span> Мы говорим цену и что свободно</li>
           <li><span class="n">3</span> Бронируем без предоплаты</li>
         </ul>
@@ -726,32 +723,17 @@
 
       <div>
         <div class="form-band__card">
-          <h3>Заявка на бронирование</h3>
-          <form data-booking-form data-house-name="Гостевой дом «Сатис» (заявка с главной)">
-            <div class="field">
-              <label for="h-dates">Даты заезда и выезда</label>
-              <input type="text" id="h-dates" name="dates" placeholder="напр. 12–15 сентября">
-            </div>
-            <div class="field">
-              <label for="h-guests">Количество гостей</label>
-              <input type="number" id="h-guests" name="guests" min="1" placeholder="сколько человек">
-            </div>
-            <div class="field">
-              <label for="h-phone">Телефон<span class="req"> *</span></label>
-              <input type="tel" id="h-phone" name="phone" placeholder="+7 900 000-00-00" required>
-            </div>
-            <div class="field">
-              <label for="h-comment">Что нужно</label>
-              <textarea id="h-comment" name="comment" placeholder="Баня, мероприятие, длительное проживание…"></textarea>
-            </div>
-            <label class="consent">
-              <input type="checkbox" name="consent" required>
-              <span>Согласен на обработку указанных данных для ответа на заявку — <a href="politika.html">как мы их обрабатываем</a></span>
-            </label>
-            <button type="submit" class="btn btn-primary btn-block">Узнать цену и занятость</button>
-          </form>
-          <div class="form-success"></div>
-          <p class="form-note">Заявка уйдёт в WhatsApp — останется нажать «отправить».</p>
+          <h3>Напишите нам</h3>
+          <p class="booking-lead">Скажите даты и сколько вас — посчитаем стоимость и подберём дом. Никаких форм и анкет: пишите прямо в мессенджер.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-block" href="#" data-contact="whatsapp-href"
+               data-whatsapp-text="Здравствуйте! Хочу узнать свободные даты и стоимость в гостевом доме «Сатис»."
+               target="_blank" rel="noopener">Написать в WhatsApp</a>
+            <a class="btn btn-outline btn-block" href="#" data-contact="telegram-href"
+               target="_blank" rel="noopener">Написать в Telegram</a>
+            <a class="btn btn-outline btn-block" data-contact="phone-href"><span data-contact="phone-text">+7 903 602-34-08</span></a>
+          </div>
+          <p class="form-note">Звонки с 9:00 до 22:00. Данные на сайте мы не собираем и не храним.</p>
         </div>
       </div>
     </div>
@@ -778,6 +760,7 @@
         <li><a href="pravila.html">Правила проживания</a></li>
         <li><a href="kontakty.html">Контакты</a></li>
         <li><a href="politika.html">Обработка персональных данных</a></li>
+        <li><a href="politika-cookies.html">Файлы cookie</a></li>
       </ul>
     </div>
     <div>
@@ -806,6 +789,18 @@
   <a href="#" data-contact="whatsapp-href" target="_blank" rel="noopener" class="btn btn-green btn-sm">WhatsApp</a>
 </div>
 
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite"
+     aria-label="Использование файлов cookie" hidden>
+  <div class="cookie-banner__inner">
+    <p class="cookie-banner__text">Мы используем cookie. Обязательные cookie обеспечивают работу Сайта. Необязательные cookie используются только с Вашего согласия. Подробнее — в <a href="politika-cookies.html">Политике использования файлов cookie</a></p>
+    <div class="cookie-banner__actions">
+      <button type="button" class="btn btn-primary" data-cookie-accept>Принять все</button>
+      <button type="button" class="btn btn-outline" data-cookie-reject>Отклонить необязательные</button>
+    </div>
+  </div>
+</div>
+
 <script src="assets/js/main.js"></script>
+<script src="assets/js/cookie.js"></script>
 </body>
 </html>

@@ -108,49 +108,9 @@ function initNavToggle() {
   });
 }
 
-/** Собирает текст заявки из полей формы. */
-function buildRequestText(form) {
-  const value = (name) => form.querySelector(`[name='${name}']`)?.value.trim() || "";
-  const houseName = value("house") || form.dataset.houseName || "Гостевой дом «Сатис»";
-
-  const lines = [`Заявка на бронирование: ${houseName}.`];
-  const name = value("name");
-  const dates = value("dates");
-  const guests = value("guests");
-  const comment = value("comment");
-
-  if (name) lines.push(`Имя: ${name}`);
-  if (dates) lines.push(`Даты: ${dates}`);
-  if (guests) lines.push(`Гостей: ${guests}`);
-  lines.push(`Телефон для связи: ${value("phone")}`);
-  if (comment) lines.push(`Комментарий: ${comment}`);
-
-  return lines.join("\n");
-}
-
-function initBookingForms() {
-  document.querySelectorAll("form[data-booking-form]").forEach((form) => {
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const message = buildRequestText(form);
-      const successEl = form.parentElement.querySelector(".form-success");
-
-      if (successEl) {
-        successEl.classList.add("show");
-        successEl.textContent =
-          "Заявка готова — открываем мессенджер. Останется нажать «отправить», и мы ответим.";
-      }
-
-      window.open(whatsappLink(message), "_blank", "noopener");
-      form.reset();
-    });
-  });
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   applyContacts();
   initNavToggle();
-  initBookingForms();
 });
 
 /* =========================================================
